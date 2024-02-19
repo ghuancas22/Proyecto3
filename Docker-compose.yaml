@@ -1,1 +1,148 @@
-Proyecto 3
+version: "3.9"
+services:
+  # PHP-Apache
+  PHP-Apache:
+    image: php:apache
+    container_name: PHP-Apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+  # MySQL
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: bbdduniversitat
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d:rw
+  # PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    ports:
+      - "90:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: 123
+
+  #Postfix
+  postfix:
+    image: catatnight/postfix
+    container_name: postfix
+    ports:
+      - "25:25"
+      - "587:587"
+    volumes:
+      - ./certificados:/etc/ssl/private
+    environment:
+      - MAIL_DOMAIN=example.com
+      - SMTP_USERNAME=user
+      - SMTP_PASSWORD=password
+      - SMTP_SERVER_HOSTNAME=smtp.gmail.com
+      - SMTP_SERVER_PORT=587
+      - USE_TLS=yes
+
+  #Dovecot
+  dovecot:
+    image: dovecot/dovecot
+    container_name: dovecot
+    volumes:
+      - ./certificados:/etc/ssl/private
+
+  #Thunderbird
+  thunderbird:
+    image: jess/thunderbird
+    container_name: thunderbird
+    ports:
+      - "8080:8080"
+
+  #SFTP
+  ftp:
+    image: fauria/vsftpd:latest
+    container_name: Ftp
+    restart: always
+    environment:
+      - FTP_USER=adminuser
+      - FTP_PASS=adminpass
+      - PASV_ADDRESS=127.0.0.1
+      - PASV_MIN_PORT=21100
+      - PASV_MAX_PORT=21110
+    volumes:
+      - ftp-data:/home/vsftpd
+      - ftp-log-data:/var/log/vsftpd
+    ports:
+      - 0.0.0.0:20:20
+      - 0.0.0.0:21:21
+      - "21100-21110:21100-21110"
+           
+  sftp:
+    image: atmoz/sftp:latest
+    container_name: Sftp
+    restart: always
+    command: adminuser:adminpass:1001
+    volumes:
+      - sftp-data:/home/foo/upload
+    ports:
+      - 0.0.0.0:2222:22
+
+  #OpenLdap
+  openldap:
+    image: osixia/openldap:1.5.0
+    container_name: openldap
+    volumes:
+      - openldap-data:/var/lib/ldap
+      #- ./data/certificates:/container/service/slapd/assets/certs
+      #- ./storage/ldap_config:/etc/ldap/slapd.d
+    environment:
+      - LDAP_ORGANISATION=example
+      - LDAP_DOMAIN=example.org
+      - LDAP_ADMIN_PASSWORD=adminpass
+      - LDAP_CONFIG_PASSWORD=configpass
+      - LDAP_RFC2307BIS_SCHEMA=true
+      - LDAP_REMOVE_CONFIG_AFTER_SETUP=true
+      - LDAP_TLS_VERIFY_CLIENT=never
+      - LDAP_READONLY_USER=true
+      - LDAP_READONLY_USER_USERNAME=userro
+      - LDAP_READONLY_USER_PASSWORD=userropass
+    ports:
+      - 389:389
+      - 636:636
+    networks:
+      - openldap
+      
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    hostname: phpldapadmin
+    environment: 
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+      - PHPLDAPADMIN_HTTPS=false
+    ports: 
+      - 8081:80
+    depends_on:
+      - openldap
+    networks:
+      - openldap
+          
+networks:
+  openldap:
+    name: openldap
+
+volumes:
+  openldap-data:
+  ftp-data:
+  ftp-log-data:
+  sftp-data:
