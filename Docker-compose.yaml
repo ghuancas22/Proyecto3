@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  # PHP-Apache
+  # PHP-Apache  (OK)
   PHP-Apache:
     image: php:apache
     container_name: PHP-Apache
@@ -13,7 +13,7 @@ services:
       - 80:80
     depends_on:
       - mysql
-  # MySQL
+  # MySQL  (OK)
   mysql:
     image: mysql
     restart: always
@@ -26,7 +26,8 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d:rw
-  # PHPMyAdmin
+
+  # PHPMyAdmin (OK)
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
