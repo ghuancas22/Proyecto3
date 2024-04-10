@@ -13,15 +13,16 @@ services:
       - 80:80
     depends_on:
       - mysql
+
   # MySQL  (OK)
   mysql:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 123
-      MYSQL_DATABASE: bbdduniversitat
-      MYSQL_USER: user
-      MYSQL_PASSWORD: 123
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: HotelMoro
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
     ports:
       - "3306:3306"
     volumes:
@@ -37,7 +38,7 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_ROOT_PASSWORD: admin123
 
   #Postfix
   postfix:
@@ -49,10 +50,10 @@ services:
     volumes:
       - ./certificados:/etc/ssl/private
     environment:
-      - MAIL_DOMAIN=example.com
-      - SMTP_USERNAME=user
+      - MAIL_DOMAIN=mail.hotelmoro.com
+      - SMTP_USERNAME=asd
       - SMTP_PASSWORD=password
-      - SMTP_SERVER_HOSTNAME=smtp.gmail.com
+      - SMTP_SERVER_HOSTNAME=mail.hotelmoro.com
       - SMTP_SERVER_PORT=587
       - USE_TLS=yes
 
