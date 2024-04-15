@@ -41,21 +41,29 @@ services:
       MYSQL_ROOT_PASSWORD: admin123
 
   #Postfix
-  postfix:
-    image: catatnight/postfix
-    container_name: postfix
-    ports:
-      - "25:25"
-      - "587:587"
-    volumes:
-      - ./certificados:/etc/ssl/private
+  mailserver:
+    image: analogic/poste.io
+    container_name: mailserver-sysbeards
+    restart: always
+    network_mode: "host"
+    expose:
+      - "25"
+      - "8080"
+      - "4443"
+      - "110"
+      - "143"
+      - "465"
+      - "587"
+      - "993"
+      - "995"
     environment:
-      - MAIL_DOMAIN=mail.hotelmoro.com
-      - SMTP_USERNAME=asd
-      - SMTP_PASSWORD=password
-      - SMTP_SERVER_HOSTNAME=mail.hotelmoro.com
-      - SMTP_SERVER_PORT=587
-      - USE_TLS=yes
+      - TZ=Europe/Madrid
+      - h=mail.sysbeards-academy.com # Direccion del servidor de mail hosting
+      - HTTP_PORT=8080
+      - HTTPS_PORT=4443
+      - DISABLE_CLAMAV=TRUE
+    volumes:
+      - /mnt/mail:/data
 
   #Dovecot
   dovecot:
@@ -100,49 +108,54 @@ services:
     ports:
       - 0.0.0.0:2222:22
 
-  #OpenLdap
+  #OpenLdap (OK)
   openldap:
-    image: osixia/openldap:1.5.0
+    image: osixia/openldap:latest
     container_name: openldap
-    volumes:
-      - openldap-data:/var/lib/ldap
-      #- ./data/certificates:/container/service/slapd/assets/certs
-      #- ./storage/ldap_config:/etc/ldap/slapd.d
-    environment:
-      - LDAP_ORGANISATION=example
-      - LDAP_DOMAIN=example.org
-      - LDAP_ADMIN_PASSWORD=adminpass
-      - LDAP_CONFIG_PASSWORD=configpass
-      - LDAP_RFC2307BIS_SCHEMA=true
-      - LDAP_REMOVE_CONFIG_AFTER_SETUP=true
-      - LDAP_TLS_VERIFY_CLIENT=never
-      - LDAP_READONLY_USER=true
-      - LDAP_READONLY_USER_USERNAME=userro
-      - LDAP_READONLY_USER_PASSWORD=userropass
+    hostname: openldap
     ports:
-      - 389:389
-      - 636:636
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./LDAP/certificados:/container/service/slapd/assets/certs
+      - ./LDAP/slapd/database:/var/lib/ldap
+      - ./LDAP/slapd/config:/etc/ldap/slapd.d
+    environment: 
+      - LDAP_ORGANISATION=hotelmoro
+      - LDAP_DOMAIN=hotelmoro.com
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=admin123
+      - LDAP_CONFIG_PASSWORD=svr123
+      - LDAP_BASE_DN=dc=hotelmoro,dc=com
+      - LDAP_TLS_CRT_FILENAME=hotelmoro.crt
+      - LDAP_TLS_KEY_FILENAME=hotelmoro.key
+      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt
+      - LDAP_READONLY_USER=true
+      - LDAP_READONLY_USER_USERNAME=user
+      - LDAP_READONLY_USER_PASSWORD=user123
     networks:
       - openldap
-      
+
+  # Openldap (OK)
   phpldapadmin:
     image: osixia/phpldapadmin:latest
     container_name: phpldapadmin
     hostname: phpldapadmin
+    ports: 
+      - "800:80"
     environment: 
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
-    ports: 
-      - 8081:80
+
     depends_on:
       - openldap
     networks:
       - openldap
-          
+
 networks:
   openldap:
-    name: openldap
-
+    driver: bridge
+  
 volumes:
   openldap-data:
   ftp-data:
