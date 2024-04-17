@@ -76,8 +76,8 @@
         <?php
         // Conexión a la base de datos
         $servername = "localhost";
-        $username = "rmihailescu22";
-        $password = "1234";
+        $username = "admin";
+        $password = "admin123";
         $dbname = "HotelMoro";
 
         $conn = new mysqli($servername, $username, $password, $dbname);

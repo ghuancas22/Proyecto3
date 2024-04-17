@@ -1,5 +1,20 @@
 version: "3.9"
 services:
+  #DNS (OK)
+  dns:
+    image: sameersbn/bind:latest
+    container_name: dns
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./DNS/bind:/data
+    environment:
+      - ROOT_PASSWORD=svr123
+      - FORWARDERS=8.8.8.8 # Opcional, para reenviar consultas a otro servidor DNS
+    networks:
+      - DNS
+
   # PHP-Apache  (OK)
   PHP-Apache:
     image: php:apache
@@ -72,41 +87,34 @@ services:
     volumes:
       - ./certificados:/etc/ssl/private
 
-  #Thunderbird
-  thunderbird:
-    image: jess/thunderbird
-    container_name: thunderbird
-    ports:
-      - "8080:8080"
-
   #SFTP
-  ftp:
-    image: fauria/vsftpd:latest
-    container_name: Ftp
-    restart: always
-    environment:
-      - FTP_USER=adminuser
-      - FTP_PASS=adminpass
-      - PASV_ADDRESS=127.0.0.1
-      - PASV_MIN_PORT=21100
-      - PASV_MAX_PORT=21110
-    volumes:
-      - ftp-data:/home/vsftpd
-      - ftp-log-data:/var/log/vsftpd
-    ports:
-      - 0.0.0.0:20:20
-      - 0.0.0.0:21:21
-      - "21100-21110:21100-21110"
+  #ftp:
+  #  image: fauria/vsftpd:latest
+   # container_name: Ftp
+   # restart: always
+  #  environment:
+   #   - FTP_USER=admin
+  #    - FTP_PASS=admin123
+  #    - PASV_ADDRESS=127.0.0.1
+  #    - PASV_MIN_PORT=21100
+  #    - PASV_MAX_PORT=21110
+  #  volumes:
+  #    - ftp-data:/home/vsftpd
+  #    - ftp-log-data:/var/log/vsftpd
+  #  ports:
+  #    - 0.0.0.0:20:20
+  #    - 0.0.0.0:21:21
+  #    - "21100-21110:21100-21110"
            
-  sftp:
-    image: atmoz/sftp:latest
-    container_name: Sftp
-    restart: always
-    command: adminuser:adminpass:1001
-    volumes:
-      - sftp-data:/home/foo/upload
-    ports:
-      - 0.0.0.0:2222:22
+  #sftp:
+  #  image: atmoz/sftp:latest
+  #  container_name: Sftp
+  #  restart: always
+  #  command: adminuser:adminpass:1001
+  #  volumes:
+  #    - sftp-data:/home/foo/upload
+  #  ports:
+  #    - 0.0.0.0:2222:22
 
   #OpenLdap (OK)
   openldap:
@@ -125,14 +133,14 @@ services:
       - LDAP_DOMAIN=hotelmoro.com
       - LDAP_ADMIN_USERNAME=admin
       - LDAP_ADMIN_PASSWORD=admin123
-      - LDAP_CONFIG_PASSWORD=svr123
+      - LDAP_CONFIG_PASSWORD=admin123
       - LDAP_BASE_DN=dc=hotelmoro,dc=com
       - LDAP_TLS_CRT_FILENAME=hotelmoro.crt
       - LDAP_TLS_KEY_FILENAME=hotelmoro.key
       - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt
       - LDAP_READONLY_USER=true
-      - LDAP_READONLY_USER_USERNAME=user
-      - LDAP_READONLY_USER_PASSWORD=user123
+      - LDAP_READONLY_USER_USERNAME=admin
+      - LDAP_READONLY_USER_PASSWORD=admin123
     networks:
       - openldap
 
@@ -142,7 +150,7 @@ services:
     container_name: phpldapadmin
     hostname: phpldapadmin
     ports: 
-      - "800:80"
+      - "100:80"
     environment: 
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
@@ -153,6 +161,8 @@ services:
       - openldap
 
 networks:
+  DNS:
+    driver: bridge
   openldap:
     driver: bridge
   
