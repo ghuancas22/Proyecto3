@@ -54,6 +54,8 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: admin123
+    volumes:
+      - ./mysql:containerPath:ro 
 
   #Postfix
   mailserver:
@@ -116,7 +118,8 @@ services:
   #  ports:
   #    - 0.0.0.0:2222:22
 
-  #OpenLdap (OK)
+  #OpenLdap (OK) 
+    #Iniciar sesion con : cn=admin,dc=hotelmoro,dc=com  admin123
   openldap:
     image: osixia/openldap:latest
     container_name: openldap
@@ -144,7 +147,7 @@ services:
     networks:
       - openldap
 
-  # Openldap (OK)
+  # Phpldap (OK)
   phpldapadmin:
     image: osixia/phpldapadmin:latest
     container_name: phpldapadmin
