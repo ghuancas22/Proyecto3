@@ -8,7 +8,7 @@ services:
     ports:
       - "636:636"
     volumes:
-      - ./LDAP/certificados:/container/service/slapd/assets/certs
+      - ./certificados:/container/service/slapd/assets/certs
       - ./LDAP/slapd/database:/var/lib/ldap
       - ./LDAP/slapd/config:/etc/ldap/slapd.d
     environment: 
@@ -100,7 +100,7 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: admin123
     volumes:
-      - /mnt/mysql:/containerPath:ro 
+      - ./mysql:/containerPath:ro 
     networks:
       - redhotelmoro
 
