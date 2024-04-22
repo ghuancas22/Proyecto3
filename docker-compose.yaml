@@ -1,131 +1,11 @@
 version: "3.9"
 services:
-  #DNS (OK)
-  dns:
-    image: sameersbn/bind:latest
-    container_name: dns
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-    volumes:
-      - ./DNS/bind:/data
-    environment:
-      - ROOT_PASSWORD=svr123
-      - FORWARDERS=8.8.8.8 # Opcional, para reenviar consultas a otro servidor DNS
-    networks:
-      - DNS
-
-  # PHP-Apache  (OK)
-  PHP-Apache:
-    image: php:apache
-    container_name: PHP-Apache
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./www:/var/www/html
-    ports:
-      - 80:80
-    depends_on:
-      - mysql
-
-  # MySQL  (OK)
-  mysql:
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: admin123
-      MYSQL_DATABASE: HotelMoro
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin123
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql:/docker-entrypoint-initdb.d:rw
-
-  # PHPMyAdmin (OK)
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    links:
-      - mysql
-    ports:
-      - "90:80"
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: admin123
-    volumes:
-      - ./mysql:containerPath:ro 
-
-  #Postfix
-  mailserver:
-    image: analogic/poste.io
-    container_name: mailserver-sysbeards
-    restart: always
-    network_mode: "host"
-    expose:
-      - "25"
-      - "8080"
-      - "4443"
-      - "110"
-      - "143"
-      - "465"
-      - "587"
-      - "993"
-      - "995"
-    environment:
-      - TZ=Europe/Madrid
-      - h=mail.sysbeards-academy.com # Direccion del servidor de mail hosting
-      - HTTP_PORT=8080
-      - HTTPS_PORT=4443
-      - DISABLE_CLAMAV=TRUE
-    volumes:
-      - /mnt/mail:/data
-
-  #Dovecot
-  dovecot:
-    image: dovecot/dovecot
-    container_name: dovecot
-    volumes:
-      - ./certificados:/etc/ssl/private
-
-  #SFTP
-  #ftp:
-  #  image: fauria/vsftpd:latest
-   # container_name: Ftp
-   # restart: always
-  #  environment:
-   #   - FTP_USER=admin
-  #    - FTP_PASS=admin123
-  #    - PASV_ADDRESS=127.0.0.1
-  #    - PASV_MIN_PORT=21100
-  #    - PASV_MAX_PORT=21110
-  #  volumes:
-  #    - ftp-data:/home/vsftpd
-  #    - ftp-log-data:/var/log/vsftpd
-  #  ports:
-  #    - 0.0.0.0:20:20
-  #    - 0.0.0.0:21:21
-  #    - "21100-21110:21100-21110"
-           
-  #sftp:
-  #  image: atmoz/sftp:latest
-  #  container_name: Sftp
-  #  restart: always
-  #  command: adminuser:adminpass:1001
-  #  volumes:
-  #    - sftp-data:/home/foo/upload
-  #  ports:
-  #    - 0.0.0.0:2222:22
-
-  #OpenLdap (OK) 
-    #Iniciar sesion con : cn=admin,dc=hotelmoro,dc=com  admin123
+  # OPENLDAP (OK)
   openldap:
     image: osixia/openldap:latest
     container_name: openldap
     hostname: openldap
     ports:
-      - "389:389"
       - "636:636"
     volumes:
       - ./LDAP/certificados:/container/service/slapd/assets/certs
@@ -141,11 +21,9 @@ services:
       - LDAP_TLS_CRT_FILENAME=hotelmoro.crt
       - LDAP_TLS_KEY_FILENAME=hotelmoro.key
       - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt
-      - LDAP_READONLY_USER=true
-      - LDAP_READONLY_USER_USERNAME=admin
-      - LDAP_READONLY_USER_PASSWORD=admin123
+      - LDAP_READONLY_USER=false
     networks:
-      - openldap
+      - redhotelmoro
 
   # Phpldap (OK)
   phpldapadmin:
@@ -157,20 +35,123 @@ services:
     environment: 
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
-
     depends_on:
       - openldap
     networks:
-      - openldap
+      - redhotelmoro
+
+  #CoreDNS (OK)
+  coredns:
+    image: coredns/coredns
+    container_name: coredns
+    restart: always
+    ports:
+      - "54:54/udp"
+    volumes:
+      - ./Corefile:/etc/coredns/Corefile
+    environment:
+      - COREDNS_ALLOW_UPDATE=yes
+      - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0
+      - COREDNS_IP=192.168.1.100
+    networks:
+      - redhotelmoro
+
+  # PHP-Apache  (OK)
+  PHP-Apache:
+    image: php:apache
+    container_name: PHP-Apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+    networks:
+      - redhotelmoro
+
+  # MySQL  (OK)
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: HotelMoro
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d:rw
+    networks:
+      - redhotelmoro
+
+  # PHPMyAdmin (OK)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    ports:
+      - "90:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: admin123
+    volumes:
+      - /mnt/mysql:/containerPath:ro 
+    networks:
+      - redhotelmoro
+
+  #Postfix
+  mailserver:
+    image: analogic/poste.io
+    container_name: Postfix
+    restart: always
+    expose:
+      - "25"
+    environment:
+      - TZ=Europe/Barcelona
+      - h=mail.hotelmoro.com # Direccion del servidor de mail hosting
+      - HTTP_PORT=8080
+      - HTTPS_PORT=4443
+      - DISABLE_CLAMAV=TRUE
+      - DNS_SERVER=192.168.1.100
+    volumes:
+      - /mnt/mail:/data
+    networks:
+      - redhotelmoro
+
+  #Dovecot
+  dovecot:
+    image: dovecot/dovecot
+    container_name: dovecot
+    volumes:
+      - ./certificados:/etc/ssl/private
+    networks:
+      - redhotelmoro
+
+  # Portainer (Administrador de Servicios)
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "portainer_data:/data"
+    networks:
+      - redhotelmoro
 
 networks:
-  DNS:
+  redhotelmoro:
     driver: bridge
-  openldap:
-    driver: bridge
-  
+
 volumes:
   openldap-data:
   ftp-data:
   ftp-log-data:
   sftp-data:
+  portainer_data:

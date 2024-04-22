@@ -75,7 +75,7 @@
 
         <?php
         // Conexión a la base de datos
-        $servername = "localhost";
+        $servername = "hotelmoro.com";
         $username = "admin";
         $password = "admin123";
         $dbname = "HotelMoro";
@@ -149,6 +149,5 @@
     </table>
 
 </div>
-
 </body>
 </html>
