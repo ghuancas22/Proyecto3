@@ -1,29 +1,32 @@
-version: "3.9"
+version: "3.9" #La version de Docker Compose que hemos  utilitzado (en este caso es la version 3.9)
 services:
   # OPENLDAP (OK)
   openldap:
-    image: osixia/openldap:latest
-    container_name: openldap
+    image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente
+    # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
+    container_name: openldap      
     hostname: openldap
-    ports:
+    ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
       - "636:636"
-    volumes:
-      - ./certificados:/container/service/slapd/assets/certs
-      - ./LDAP/slapd/database:/var/lib/ldap
-      - ./LDAP/slapd/config:/etc/ldap/slapd.d
+    volumes:  # Hemos montado volúmenes para almacenar datos.  y 
+      - ./certificados:/container/service/slapd/assets/certs #certificados
+      - ./LDAP/slapd/database:/var/lib/ldap  # base de datos
+      - ./LDAP/slapd/config:/etc/ldap/slapd.d  #configuración de LDAP
+      # Configuracion de las variables de entorno para OpenLDAP
     environment: 
-      - LDAP_ORGANISATION=hotelmoro
-      - LDAP_DOMAIN=hotelmoro.com
-      - LDAP_ADMIN_USERNAME=admin
-      - LDAP_ADMIN_PASSWORD=admin123
-      - LDAP_CONFIG_PASSWORD=admin123
-      - LDAP_BASE_DN=dc=hotelmoro,dc=com
-      - LDAP_TLS_CRT_FILENAME=hotelmoro.crt
-      - LDAP_TLS_KEY_FILENAME=hotelmoro.key
-      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt
+      - LDAP_ORGANISATION=hotelmoro # Nombre de la organización del hotel
+      - LDAP_DOMAIN=hotelmoro.com  # Dominio de LDAP
+      - LDAP_ADMIN_USERNAME=admin  # Nombre de usuario del administrador
+      - LDAP_ADMIN_PASSWORD=admin123 # Contraseña del administrador
+      - LDAP_CONFIG_PASSWORD=admin123  # Contraseña de configuración
+      - LDAP_BASE_DN=dc=hotelmoro,dc=com # Base DN para el dominio (Nombre distinguido)
+      - LDAP_TLS_CRT_FILENAME=hotelmoro.crt # Nombre del archivo de certificado TLS
+      - LDAP_TLS_KEY_FILENAME=hotelmoro.key # Nombre del archivo de clave TLS
+      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt 
       - LDAP_READONLY_USER=false
     networks:
       - redhotelmoro
+
 
   # Phpldap (OK)
   phpldapadmin:
