@@ -15,7 +15,7 @@ if (!$conexion)   die("No ha podido realizarse la conexión".mysqli_connect_erro
     <p>Con vistas a la ciudad / playa / montañas (según la ubicación), nuestras habitaciones estándar ofrecen un entorno encantador para tu estancia. Despiértate con vistas impresionantes y comienza tu día con energía renovada.</p>
     <p>Además, en HotelMoro nos esforzamos por brindar un servicio excepcional a nuestros huéspedes. Nuestro personal amable y atento está siempre disponible para asegurarse de que tengas una experiencia memorable durante tu estancia con nosotros.</p>
     <p>¡Reserva ahora tu habitación estándar y descubre por qué somos la elección ideal para tu próximo viaje!</p>
-    <img src="/workspaces/Proyecto3/www/img/Imagen3.jpg" alt="Imagen de habitación estandar">
+    <img src="/img/Imagen5.jpg" alt="Imagen de habitación estandar">
     <?php
     
     

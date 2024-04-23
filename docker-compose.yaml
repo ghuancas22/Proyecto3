@@ -2,11 +2,17 @@ version: "3.9" #La version de Docker Compose que hemos  utilitzado (en este caso
 services:
   # OPENLDAP (OK)
   openldap:
+<<<<<<< HEAD
     image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente
     # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
     container_name: openldap      
     hostname: openldap
     ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
+=======
+    image: osixia/openldap:latest
+    container_name: openldap
+    ports:
+>>>>>>> f038a82 (a)
       - "636:636"
     volumes:  # Hemos montado volúmenes para almacenar datos.  y 
       - ./certificados:/container/service/slapd/assets/certs #certificados
@@ -27,8 +33,13 @@ services:
     networks:
       - redhotelmoro
 
+<<<<<<< HEAD
 
   # Phpldap (OK)
+=======
+  # Phpldapadmin (OK)
+  # LOGUEAR : cn=admin,dc=hotelmoro,dc=com  admin123
+>>>>>>> f038a82 (a)
   phpldapadmin:
     image: osixia/phpldapadmin:latest
     container_name: phpldapadmin
@@ -51,7 +62,7 @@ services:
     ports:
       - "54:54/udp"
     volumes:
-      - ./Corefile:/etc/coredns/Corefile
+      - ./Corefile:/etc/coredns/Corefile:rw
     environment:
       - COREDNS_ALLOW_UPDATE=yes
       - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0

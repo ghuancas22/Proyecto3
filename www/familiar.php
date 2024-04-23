@@ -16,7 +16,7 @@ if (!$conexion)   die("No ha podido realizarse la conexión".mysqli_connect_erro
     <p>Además, nuestras habitaciones familiares ofrecen impresionantes vistas panorámicas que harán que tus momentos en familia sean aún más especiales. Ya sea disfrutando de la ciudad, la playa o las montañas, aquí encontrarás el escenario perfecto para crear recuerdos que perdurarán para siempre.</p>
     <p>¡Reserva ahora y vive una experiencia única con tus seres queridos en HotelMoro!</p>
 
-    <img src="/workspaces/Proyecto3/www/img/Imagen1.jpg" alt="Imagen de habitación familiar">
+    <img src="/img/Imagen3.jpg" alt="Imagen de habitación familiar">
     <?php
     
     
