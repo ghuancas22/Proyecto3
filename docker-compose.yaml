@@ -5,7 +5,7 @@ services:
     image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente    
     container_name: openldap      # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
     hostname: openldap
-    ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS      - LDAP_ORGANISATION=hotelmoro # No
+    ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS 
       - "636:636"
     volumes:  # Hemos montado volúmenes para almacenar datos.  y
       - ./certificados:/container/service/slapd/assets/certs:rw #certificados
