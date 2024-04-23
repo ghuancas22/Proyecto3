@@ -22,7 +22,7 @@ services:
       - LDAP_BASE_DN=dc=hotelmoro,dc=com # Base DN para el dominio (Nombre distinguido)
       - LDAP_TLS_CRT_FILENAME=hotelmoro.crt # Nombre del archivo de certificado TLS
       - LDAP_TLS_KEY_FILENAME=hotelmoro.key # Nombre del archivo de clave TLS
-      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt 
+      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt #
       - LDAP_READONLY_USER=false
     networks:
       - redhotelmoro
