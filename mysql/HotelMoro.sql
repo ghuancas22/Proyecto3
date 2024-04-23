@@ -1,7 +1,6 @@
-CREATE DATABASE HotelMoro;
-USE HotelMoro;
-
-CREATE TABLE Personas (
+CREATE DATABASE HotelMoro; 
+USE HotelMoro;  
+CREATE TABLE Personas ( 
     id INT AUTO_INCREMENT,
     nombre VARCHAR(100),
     apellidos VARCHAR(100),

@@ -3,21 +3,16 @@ services:
   # OPENLDAP (OK)
   openldap:
     image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente    
-    container_name: openldap      # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
+    container_name: openldap      # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'    
     hostname: openldap
     ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
-    image: osixia/openldap:latest
-    container_name: openldap
-    ports:
->>>>>>> f038a82 (a)
       - "636:636"
     volumes:  # Hemos montado volúmenes para almacenar datos.  y
       - ./certificados:/container/service/slapd/assets/certs:rw #certificados
       - ./LDAP/slapd/database:/var/lib/ldap:rw # base de datos
       - ./LDAP/slapd/config:/etc/ldap/slapd.d:rw #configuración de LDAP
-      # Configuracion de las variables de entorno para OpenLDAP
     environment:
-      - LDAP_ORGANISATION=hotelmoro  #nombre de la organización del hotel
+      - LDAP_ORGANISATION=hotelmoro # Nombre de la organización del hotel
       - LDAP_DOMAIN=hotelmoro.com  # Dominio de LDAP
       - LDAP_ADMIN_USERNAME=admin  # Nombre de usuario del administrador
       - LDAP_ADMIN_PASSWORD=admin123 # Contraseña del administrador
@@ -27,18 +22,24 @@ services:
       - LDAP_TLS_KEY_FILENAME=hotelmoro.key # Nombre del archivo de clave TLS
       - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt # Nombre del archivo de cerificado de autoridad de certficacion (CA) TLS
       - LDAP_READONLY_USER=false  # Usuario de solo lectura (false es para deshabilitar)
+      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt # Nom
+      - LDAP_READONLY_USER=false
     networks:
       - redhotelmoro # conexion a la red especificada (redhotelmoro)
 
 
 
+
+
   # Phpldap (OK)
+  # Phpldap (OK) 
   phpldapadmin: #especificamos el nombre del servicio
     image: osixia/phpldapadmin:latest #indicamos el nombre de la imagen del contenedor más reciente (con la etiqueta latest)
     container_name: phpldapadmin
     hostname: phpldapadmin
     ports:
       - "100:80"
+
     environment:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
@@ -56,15 +57,13 @@ services:
     ports:
       - "54:54/udp"
     volumes:
-      - ./Corefile:/etc/coredns/Corefile:rw
+      - ./Corefile:/etc/coredns/Corefile
     environment:
       - COREDNS_ALLOW_UPDATE=yes
       - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0
       - COREDNS_IP=192.168.1.100
     networks:
       - redhotelmoro
-
-
 
 
   # PHP-Apache  (OK)
@@ -84,8 +83,6 @@ services:
       - redhotelmoro
 
 
-
-
   # MySQL  (OK)
   mysql:
     image: mysql
@@ -103,8 +100,6 @@ services:
       - redhotelmoro
 
 
-
-
   # PHPMyAdmin (OK)
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -118,10 +113,9 @@ services:
       MYSQL_ROOT_PASSWORD: admin123
     volumes:
       - ./mysql:/containerPath:ro
+      - ./mysql:/containerPath:ro
     networks:
       - redhotelmoro
-
-
 
 
   #Postfix
@@ -144,7 +138,6 @@ services:
       - redhotelmoro
 
 
-
   #Dovecot
   dovecot:
     image: dovecot/dovecot
@@ -153,6 +146,7 @@ services:
       - ./certificados:/etc/ssl/private:rw
     networks:
       - redhotelmoro
+
 
   # Portainer (Administrador de Servicios)
   portainer:
@@ -170,11 +164,12 @@ services:
     networks:
       - redhotelmoro
 
+
+
+
 networks:
   redhotelmoro:
     driver: bridge
-
-
 
 
 volumes:
@@ -183,4 +178,3 @@ volumes:
   ftp-log-data:
   sftp-data:
   portainer_data:
-
