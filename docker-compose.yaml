@@ -2,23 +2,18 @@ version: "3.9" #La version de Docker Compose que hemos  utilitzado (en este caso
 services:
   # OPENLDAP (OK)
   openldap:
-    image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente
-    # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
-    container_name: openldap      
+    image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente    
+    container_name: openldap      # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
     hostname: openldap
-    ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
-    image: osixia/openldap:latest
-    container_name: openldap
-    ports:
->>>>>>> f038a82 (a)
+    ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS      - LDAP_ORGANISATION=hotelmoro # No
       - "636:636"
-    volumes:  # Hemos montado volúmenes para almacenar datos.  y 
-      - ./certificados:/container/service/slapd/assets/certs #certificados
-      - ./LDAP/slapd/database:/var/lib/ldap  # base de datos
-      - ./LDAP/slapd/config:/etc/ldap/slapd.d  #configuración de LDAP
+    volumes:  # Hemos montado volúmenes para almacenar datos.  y
+      - ./certificados:/container/service/slapd/assets/certs:rw #certificados
+      - ./LDAP/slapd/database:/var/lib/ldap:rw # base de datos
+      - ./LDAP/slapd/config:/etc/ldap/slapd.d:rw #configuración de LDAP
       # Configuracion de las variables de entorno para OpenLDAP
-    environment: 
-      - LDAP_ORGANISATION=hotelmoro # Nombre de la organización del hotel
+    environment:
+      - LDAP_ORGANISATION=hotelmoro  #nombre de la organización del hotel
       - LDAP_DOMAIN=hotelmoro.com  # Dominio de LDAP
       - LDAP_ADMIN_USERNAME=admin  # Nombre de usuario del administrador
       - LDAP_ADMIN_PASSWORD=admin123 # Contraseña del administrador
@@ -26,31 +21,28 @@ services:
       - LDAP_BASE_DN=dc=hotelmoro,dc=com # Base DN para el dominio (Nombre distinguido)
       - LDAP_TLS_CRT_FILENAME=hotelmoro.crt # Nombre del archivo de certificado TLS
       - LDAP_TLS_KEY_FILENAME=hotelmoro.key # Nombre del archivo de clave TLS
-      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt #
-      - LDAP_READONLY_USER=false
+      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt # Nombre del archivo de cerificado de autoridad de certficacion (CA) TLS
+      - LDAP_READONLY_USER=false  # Usuario de solo lectura (false es para deshabilitar)
     networks:
-      - redhotelmoro
+      - redhotelmoro # conexion a la red especificada (redhotelmoro)
 
-<<<<<<< HEAD
+
 
   # Phpldap (OK)
-=======
-  # Phpldapadmin (OK)
-  # LOGUEAR : cn=admin,dc=hotelmoro,dc=com  admin123
->>>>>>> f038a82 (a)
-  phpldapadmin:
-    image: osixia/phpldapadmin:latest
+  phpldapadmin: #especificamos el nombre del servicio
+    image: osixia/phpldapadmin:latest #indicamos el nombre de la imagen del contenedor más reciente (con la etiqueta latest)
     container_name: phpldapadmin
     hostname: phpldapadmin
-    ports: 
+    ports:
       - "100:80"
-    environment: 
+    environment:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
     depends_on:
       - openldap
     networks:
       - redhotelmoro
+
 
   #CoreDNS (OK)
   coredns:
@@ -68,6 +60,9 @@ services:
     networks:
       - redhotelmoro
 
+
+
+
   # PHP-Apache  (OK)
   PHP-Apache:
     image: php:apache
@@ -83,6 +78,9 @@ services:
       - mysql
     networks:
       - redhotelmoro
+
+
+
 
   # MySQL  (OK)
   mysql:
@@ -100,6 +98,9 @@ services:
     networks:
       - redhotelmoro
 
+
+
+
   # PHPMyAdmin (OK)
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -112,9 +113,12 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: admin123
     volumes:
-      - ./mysql:/containerPath:ro 
+      - ./mysql:/containerPath:ro
     networks:
       - redhotelmoro
+
+
+
 
   #Postfix
   mailserver:
@@ -131,16 +135,18 @@ services:
       - DISABLE_CLAMAV=TRUE
       - DNS_SERVER=192.168.1.100
     volumes:
-      - /mnt/mail:/data
+      - /mnt/mail:/data:rw
     networks:
       - redhotelmoro
+
+
 
   #Dovecot
   dovecot:
     image: dovecot/dovecot
     container_name: dovecot
     volumes:
-      - ./certificados:/etc/ssl/private
+      - ./certificados:/etc/ssl/private:rw
     networks:
       - redhotelmoro
 
@@ -160,10 +166,12 @@ services:
     networks:
       - redhotelmoro
 
-
 networks:
   redhotelmoro:
     driver: bridge
+
+
+
 
 volumes:
   openldap-data:
@@ -171,3 +179,4 @@ volumes:
   ftp-log-data:
   sftp-data:
   portainer_data:
+
