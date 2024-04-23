@@ -2,13 +2,11 @@ version: "3.9" #La version de Docker Compose que hemos  utilitzado (en este caso
 services:
   # OPENLDAP (OK)
   openldap:
-<<<<<<< HEAD
     image: osixia/openldap:latest  # Hemos utilitzado la imagen osixia/openldap más reciente
     # Hemos configurado el nombre del contenedor y el nombre de host como 'openldap'
     container_name: openldap      
     hostname: openldap
     ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
-=======
     image: osixia/openldap:latest
     container_name: openldap
     ports:
