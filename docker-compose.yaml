@@ -7,10 +7,11 @@ services:
     hostname: openldap
     ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
       - "636:636"
-    volumes:  # Hemos montado volúmenes para almacenar datos.  y
-      - ./certificados:/container/service/slapd/assets/certs:rw #certificados
-      - ./LDAP/slapd/database:/var/lib/ldap:rw # base de datos
-      - ./LDAP/slapd/config:/etc/ldap/slapd.d:rw #configuración de LDAP
+    volumes:  # Hemos montado volúmenes para almacenar datos. 
+      - ./certificados:/container/service/slapd/assets/certs #certificados
+      - ./LDAP/slapd/database:/var/lib/ldap  # base de datos
+      - ./LDAP/slapd/config:/etc/ldap/slapd.d  #configuración de LDAP
+      # Configuracion de las variables de entorno para OpenLDAP
     environment:
       - LDAP_ORGANISATION=hotelmoro # Nombre de la organización del hotel
       - LDAP_DOMAIN=hotelmoro.com  # Dominio de LDAP
@@ -31,8 +32,8 @@ services:
 
 
 
+
   # Phpldap (OK)
-  # Phpldap (OK) 
   phpldapadmin: #especificamos el nombre del servicio
     image: osixia/phpldapadmin:latest #indicamos el nombre de la imagen del contenedor más reciente (con la etiqueta latest)
     container_name: phpldapadmin
@@ -49,6 +50,8 @@ services:
       - redhotelmoro
 
 
+
+
   #CoreDNS (OK)
   coredns:
     image: coredns/coredns
@@ -57,13 +60,15 @@ services:
     ports:
       - "54:54/udp"
     volumes:
-      - ./Corefile:/etc/coredns/Corefile
+      - ./Corefile:/etc/coredns/Corefile:rw
     environment:
       - COREDNS_ALLOW_UPDATE=yes
       - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0
       - COREDNS_IP=192.168.1.100
     networks:
       - redhotelmoro
+
+
 
 
   # PHP-Apache  (OK)
@@ -74,13 +79,14 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./www:/var/www/html
+      - ./www:/var/www/html:rw
     ports:
       - 80:80
     depends_on:
       - mysql
     networks:
       - redhotelmoro
+
 
 
   # MySQL  (OK)
@@ -99,6 +105,7 @@ services:
     networks:
       - redhotelmoro
 
+  # TUS MUERTOS
 
   # PHPMyAdmin (OK)
   phpmyadmin:
@@ -134,8 +141,11 @@ services:
       - DNS_SERVER=192.168.1.100
     volumes:
       - /mnt/mail:/data:rw
+      - /mnt/mail:/data:rw
     networks:
       - redhotelmoro
+
+
 
 
   #Dovecot
@@ -144,8 +154,11 @@ services:
     container_name: dovecot
     volumes:
       - ./certificados:/etc/ssl/private:rw
+      - ./certificados:/etc/ssl/private:rw
     networks:
       - redhotelmoro
+
+
 
 
   # Portainer (Administrador de Servicios)
@@ -164,13 +177,9 @@ services:
     networks:
       - redhotelmoro
 
-
-
-
 networks:
   redhotelmoro:
     driver: bridge
-
 
 volumes:
   openldap-data:
