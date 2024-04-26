@@ -8,9 +8,9 @@ services:
     ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
       - "636:636"
     volumes:  # Hemos montado volúmenes para almacenar datos. 
-      - ./certificados:/container/service/slapd/assets/certs #certificados
-      - ./LDAP/slapd/database:/var/lib/ldap  # base de datos
-      - ./LDAP/slapd/config:/etc/ldap/slapd.d  #configuración de LDAP
+      - ./certificados:/container/service/slapd/assets/certs:rw #certificados
+      - ./LDAP/slapd/database:/var/lib/ldap:rw  # base de datos
+      - ./LDAP/slapd/config:/etc/ldap/slapd.d:rw  #configuración de LDAP
       # Configuracion de las variables de entorno para OpenLDAP
     environment:
       - LDAP_ORGANISATION=hotelmoro # Nombre de la organización del hotel
