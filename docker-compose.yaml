@@ -9,8 +9,6 @@ services:
       - "636:636"
     volumes:  # Hemos montado volúmenes para almacenar datos. 
       - './certificados:/container/service/slapd/assets/certs:rw' #certificados
-      - './LDAP/slapd/database:/var/lib/ldap:rw'  # base de datos
-      - './LDAP/slapd/config:/etc/ldap/slapd.d:rw'  #configuración de LDAP
       # Configuracion de las variables de entorno para OpenLDAP
     environment:
       - LDAP_ORGANISATION=hotelmoro
@@ -33,7 +31,6 @@ services:
     hostname: phpldapadmin
     ports:
       - "100:80"
-
     environment:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
       - PHPLDAPADMIN_HTTPS=false
@@ -50,7 +47,7 @@ services:
     ports:
       - "54:54/udp"
     volumes:
-      - './Corefile:/etc/coredns/Corefile:rw'
+      - './Corefile:/etc/coredns:rw'
     environment:
       - COREDNS_ALLOW_UPDATE=yes
       - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0

@@ -18,7 +18,6 @@ while ($row = $result->fetch_assoc()) {
     $ldif_content .= "dn: cn=" . $row['nombre'] . ",ou=personal,dc=hotelmoro,dc=com\n";
     $ldif_content .= "objectClass: inetOrgPerson\n";
     $ldif_content .= "cn: " . $row['nombre'] . "\n";
-    $ldif_content .= "sn: " . $row['apellido'] . "\n";
     $ldif_content .= "mail: " . $row['email'] . "\n";
     // Agregar más atributos según sea necesario
     $ldif_content .= "\n";
