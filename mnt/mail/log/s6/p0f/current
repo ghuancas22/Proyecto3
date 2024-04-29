@@ -1,0 +1,24 @@
+2024-04-29 15:21:24.096215500  --- p0f 3.09b by Michal Zalewski <lcamtuf@coredump.cx> ---
+2024-04-29 15:21:24.096259500  
+2024-04-29 15:21:24.096260500  [+] Closed 1 file descriptor.
+2024-04-29 15:21:24.179159500  [+] Loaded 322 signatures from '/etc/p0f/p0f.fp'.
+2024-04-29 15:21:24.192818500  [+] Intercepting traffic on interface 'eth0'.
+2024-04-29 15:21:24.192824500  [+] Custom filtering rule enabled: dst port 25 [+VLAN]
+2024-04-29 15:21:24.192825500  [+] Listening on API socket '/tmp/.p0f_socket' (max 20 clients).
+2024-04-29 15:21:24.278521500  [+] Privileges dropped: uid 88, gid 8, root '/home/delivery'.
+2024-04-29 15:21:24.278530500  [+] Entered main event loop.
+2024-04-29 15:21:24.278531500  
+2024-04-29 15:25:28.720211500  
+2024-04-29 15:25:28.720274500  All done. Processed 0 packets.
+2024-04-29 15:26:27.334898500  --- p0f 3.09b by Michal Zalewski <lcamtuf@coredump.cx> ---
+2024-04-29 15:26:27.334939500  
+2024-04-29 15:26:27.334940500  [+] Closed 1 file descriptor.
+2024-04-29 15:26:27.334941500  [+] Loaded 322 signatures from '/etc/p0f/p0f.fp'.
+2024-04-29 15:26:27.334942500  [+] Intercepting traffic on interface 'eth0'.
+2024-04-29 15:26:27.334943500  [+] Custom filtering rule enabled: dst port 25 [+VLAN]
+2024-04-29 15:26:27.334944500  [+] Listening on API socket '/tmp/.p0f_socket' (max 20 clients).
+2024-04-29 15:26:27.334944500  [+] Privileges dropped: uid 88, gid 8, root '/home/delivery'.
+2024-04-29 15:26:27.334945500  [+] Entered main event loop.
+2024-04-29 15:26:27.334946500  
+2024-04-29 15:28:38.875362500  
+2024-04-29 15:28:38.875373500  All done. Processed 0 packets.

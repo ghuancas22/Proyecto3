@@ -31,13 +31,13 @@ CREATE TABLE IF NOT EXISTS personal (
 INSERT INTO personal (nombre, email, puesto, seccion)
 VALUES 
     ('Pedro Lopez', 'pedrohm@hotelmoro.com', 'Limpieza', 'Piso'),
-    ('Ana Martinez', 'anahm@hotelmoro.com', 'Recepción', 'Atención al Cliente');
+    ('Ana Martinez', 'anahm@hotelmoro.com', 'Recepcion', 'Atencion al Cliente');
 
 -- Secciones para el personal del hotel
 INSERT INTO personal (nombre, email, puesto, seccion)
 VALUES 
-    ('Laura Gomez', 'laurahm@hotelmoro.com', 'Mantenimiento', 'Área Técnica'),
+    ('Laura Gomez', 'laurahm@hotelmoro.com', 'Mantenimiento', 'area Tecnica'),
     ('Javier Ruiz', 'javierhm@hotelmoro.com', 'Seguridad', 'Vigilancia');
 
--- Agregar más secciones y empleados según sea necesario
+-- Agregar mas secciones y empleados según sea necesario
 

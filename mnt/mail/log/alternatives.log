@@ -1,0 +1,22 @@
+update-alternatives 2024-03-16 08:00:26: run with --quiet --install /usr/bin/pinentry pinentry /usr/bin/pinentry-curses 50 --slave /usr/share/man/man1/pinentry.1.gz pinentry.1.gz /usr/share/man/man1/pinentry-curses.1.gz
+update-alternatives 2024-03-16 08:00:26: link group pinentry updated to point to /usr/bin/pinentry-curses
+update-alternatives 2024-03-16 08:00:46: run with --install /usr/bin/editor editor /bin/nano 40 --slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/nano.1.gz
+update-alternatives 2024-03-16 08:00:46: link group editor updated to point to /bin/nano
+update-alternatives 2024-03-16 08:00:46: run with --install /usr/bin/pico pico /bin/nano 10 --slave /usr/share/man/man1/pico.1.gz pico.1.gz /usr/share/man/man1/nano.1.gz
+update-alternatives 2024-03-16 08:00:46: link group pico updated to point to /bin/nano
+update-alternatives 2024-03-16 08:01:21: run with --install /bin/nc nc /bin/nc.openbsd 50 --slave /bin/netcat netcat /bin/nc.openbsd --slave /usr/share/man/man1/nc.1.gz nc.1.gz /usr/share/man/man1/nc_openbsd.1.gz --slave /usr/share/man/man1/netcat.1.gz netcat.1.gz /usr/share/man/man1/nc_openbsd.1.gz
+update-alternatives 2024-03-16 08:01:21: link group nc updated to point to /bin/nc.openbsd
+update-alternatives 2024-03-16 08:01:47: run with --quiet --install /usr/bin/open open /usr/bin/run-mailcap 30 --slave /usr/share/man/man1/open.1.gz open.1.gz /usr/share/man/man1/run-mailcap.1.gz
+update-alternatives 2024-03-16 08:01:47: link group open updated to point to /usr/bin/run-mailcap
+update-alternatives 2024-03-16 08:01:48: run with --install /usr/bin/php php /usr/bin/php7.4 74 --slave /usr/share/man/man1/php.1.gz php.1.gz /usr/share/man/man1/php7.4.1.gz
+update-alternatives 2024-03-16 08:01:48: link group php updated to point to /usr/bin/php7.4
+update-alternatives 2024-03-16 08:01:48: run with --install /usr/bin/phar phar /usr/bin/phar7.4 74 --slave /usr/share/man/man1/phar.1.gz phar.1.gz /usr/share/man/man1/phar7.4.1.gz
+update-alternatives 2024-03-16 08:01:48: link group phar updated to point to /usr/bin/phar7.4
+update-alternatives 2024-03-16 08:01:48: run with --install /usr/bin/phar.phar phar.phar /usr/bin/phar.phar7.4 74 --slave /usr/share/man/man1/phar.phar.1.gz phar.phar.1.gz /usr/share/man/man1/phar.phar7.4.1.gz
+update-alternatives 2024-03-16 08:01:48: link group phar.phar updated to point to /usr/bin/phar.phar7.4
+update-alternatives 2024-03-16 08:01:49: run with --install /usr/bin/php php /usr/bin/php.default 100 --slave /usr/share/man/man1/php.1.gz php.1.gz /usr/share/man/man1/php.default.1.gz
+update-alternatives 2024-03-16 08:01:49: link group php updated to point to /usr/bin/php.default
+update-alternatives 2024-03-16 08:01:49: run with --install /usr/bin/phar phar /usr/bin/phar.default 100 --slave /usr/share/man/man1/phar.1.gz phar.1.gz /usr/share/man/man1/phar.default.1.gz
+update-alternatives 2024-03-16 08:01:49: link group phar updated to point to /usr/bin/phar.default
+update-alternatives 2024-03-16 08:01:49: run with --install /usr/bin/phar.phar phar.phar /usr/bin/phar.phar.default 100 --slave /usr/share/man/man1/phar.phar.1.gz phar.phar.1.gz /usr/share/man/man1/phar.phar.default.1.gz
+update-alternatives 2024-03-16 08:01:49: link group phar.phar updated to point to /usr/bin/phar.phar.default
