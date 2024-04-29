@@ -34,3 +34,23 @@
 694:M 29 Apr 2024 15:28:38.860 * Removing the pid file.
 694:M 29 Apr 2024 15:28:38.860 * Removing the unix socket file.
 694:M 29 Apr 2024 15:28:38.860 # Redis is now ready to exit, bye bye...
+695:C 29 Apr 2024 15:40:47.547 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+695:C 29 Apr 2024 15:40:47.551 # Redis version=6.0.16, bits=64, commit=00000000, modified=0, pid=695, just started
+695:C 29 Apr 2024 15:40:47.552 # Configuration loaded
+695:M 29 Apr 2024 15:40:47.563 * Running mode=standalone, port=6379.
+695:M 29 Apr 2024 15:40:47.563 # Server initialized
+695:M 29 Apr 2024 15:40:47.563 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+695:M 29 Apr 2024 15:40:47.563 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
+695:M 29 Apr 2024 15:40:47.564 * Loading RDB produced by version 6.0.16
+695:M 29 Apr 2024 15:40:47.565 * RDB age 729 seconds
+695:M 29 Apr 2024 15:40:47.565 * RDB memory usage when created 1.46 Mb
+695:M 29 Apr 2024 15:40:47.565 * DB loaded from disk: 0.001 seconds
+695:M 29 Apr 2024 15:40:47.565 * Ready to accept connections
+695:M 29 Apr 2024 15:40:47.565 * The server is now ready to accept connections at /var/run/redis/redis.sock
+695:signal-handler (1714405572) Received SIGTERM scheduling shutdown...
+695:M 29 Apr 2024 15:46:13.006 # User requested shutdown...
+695:M 29 Apr 2024 15:46:13.007 * Saving the final RDB snapshot before exiting.
+695:M 29 Apr 2024 15:46:13.052 * DB saved on disk
+695:M 29 Apr 2024 15:46:13.053 * Removing the pid file.
+695:M 29 Apr 2024 15:46:13.053 * Removing the unix socket file.
+695:M 29 Apr 2024 15:46:13.054 # Redis is now ready to exit, bye bye...

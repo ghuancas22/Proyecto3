@@ -1,11 +1,11 @@
 <?php 
-$host = "mysql";  
-$database = "HotelMoro"; 
-$user = "admin"; 
-$password = "admin123"; 
-$conexion = mysqli_connect($host, $user, $password,$database); 
+// Conexión a la base de datos MySQL
+$mysqli = new mysqli("mysql", "admin", "admin123", "HotelMoro");
 
-if (!$conexion)   die("No ha podido realizarse la conexión".mysqli_connect_error());
+// Verificar la conexión
+if ($mysqli->connect_error) {
+  die("Error de conexión a la base de datos: " . $mysqli->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -152,7 +152,7 @@ function cargarContenido(url) {
                 <p>En el Hotel Moro, la excelencia culinaria es una prioridad. Deléitate con una exquisita selección de platos gourmet en nuestro restaurante, donde la cocina mediterránea se fusiona con ingredientes frescos y sabores innovadores para crear una experiencia gastronómica inolvidable.
                 <p>Además, nuestras instalaciones de primer nivel incluyen un centro de bienestar donde puedes relajarte y rejuvenecer cuerpo y mente después de un día de exploración, así como espacios versátiles para eventos y reuniones que pueden adaptarse a tus necesidades específicas.
                 <p>Descubre el encanto incomparable de Barcelona desde la comodidad y la elegancia del Hotel Moro. ¡Te esperamos con los brazos abiertos para que vivas una experiencia verdaderamente inolvidable!</p>
-                <img style="text-align: center" src="hotelmoro.jpg" alt="hotelmoro" class="image">
+                <img style="text-align: center" src="/img/hotelmoro.jpg" alt="hotelmoro" class="image">
             </div>
         </div>
     </div>
