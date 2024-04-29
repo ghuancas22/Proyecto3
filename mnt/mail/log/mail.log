@@ -2,3 +2,5 @@ Apr 29 15:21:25 9e4989a97715 dovecot: master: Dovecot v2.3.21 (47349e2482) start
 Apr 29 15:26:27 4c1ae24dcaa3 dovecot: master: Dovecot v2.3.21 (47349e2482) starting up for imap, pop3, lmtp, sieve
 Apr 29 15:28:38 4c1ae24dcaa3 dovecot: master: Warning: Killed with signal 15 (by pid=675 uid=0 code=kill)
 Apr 29 15:40:47 2411782e8179 dovecot: master: Dovecot v2.3.21 (47349e2482) starting up for imap, pop3, lmtp, sieve
+Apr 29 15:59:57 31e8d8534d3e dovecot: master: Dovecot v2.3.21 (47349e2482) starting up for imap, pop3, lmtp, sieve
+Apr 29 16:05:07 31e8d8534d3e dovecot: master: Warning: Killed with signal 15 (by pid=676 uid=0 code=kill)

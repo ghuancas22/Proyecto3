@@ -34,3 +34,15 @@
 2024-04-29 15:40:47.644876500  
 2024-04-29 15:46:13.000610500  
 2024-04-29 15:46:13.000619500  All done. Processed 0 packets.
+2024-04-29 15:59:57.567214500  --- p0f 3.09b by Michal Zalewski <lcamtuf@coredump.cx> ---
+2024-04-29 15:59:57.567260500  
+2024-04-29 15:59:57.567261500  [+] Closed 1 file descriptor.
+2024-04-29 15:59:57.567262500  [+] Loaded 322 signatures from '/etc/p0f/p0f.fp'.
+2024-04-29 15:59:57.567263500  [+] Intercepting traffic on interface 'eth0'.
+2024-04-29 15:59:57.567264500  [+] Custom filtering rule enabled: dst port 25 [+VLAN]
+2024-04-29 15:59:57.567264500  [+] Listening on API socket '/tmp/.p0f_socket' (max 20 clients).
+2024-04-29 15:59:57.567265500  [+] Privileges dropped: uid 88, gid 8, root '/home/delivery'.
+2024-04-29 15:59:57.567266500  [+] Entered main event loop.
+2024-04-29 15:59:57.567267500  
+2024-04-29 16:05:07.234083500  
+2024-04-29 16:05:07.234130500  All done. Processed 0 packets.

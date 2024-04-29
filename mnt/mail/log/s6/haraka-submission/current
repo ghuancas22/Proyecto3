@@ -862,3 +862,291 @@
 2024-04-29 15:40:49.394444500  [INFO] [-] [core] [outbound] [pid: undefined] 0 files in my delivery queue
 2024-04-29 15:40:49.394533500  [INFO] [-] [core] [outbound] [pid: undefined] 0 files in my load queue
 2024-04-29 15:40:49.394645500  [INFO] [-] [core] [outbound] [pid: undefined] 0 files in my temp fail queue
+2024-04-29 15:59:57.942310500  loaded TLD files:
+2024-04-29 15:59:57.942372500    1=1455
+2024-04-29 15:59:57.942374500    2=9821
+2024-04-29 15:59:57.942375500    3=5419
+2024-04-29 15:59:57.992223500  loaded 9566 Public Suffixes
+2024-04-29 15:59:59.333595500  loglevel: PROTOCOL
+2024-04-29 15:59:59.333606500  log format: DEFAULT
+2024-04-29 15:59:59.333607500  loglevel: LOGPROTOCOL
+2024-04-29 15:59:59.333608500  Starting up Haraka version 3.0.3
+2024-04-29 15:59:59.333609500  [INFO] [-] [core] Loading plugins
+2024-04-29 15:59:59.333610500  [INFO] [-] [core] Loading plugin: status_http
+2024-04-29 15:59:59.333611500  [DEBUG] [-] [core] no timeout in status_http.timeout
+2024-04-29 15:59:59.333612500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.333613500  [DEBUG] [-] [core] plugin status_http timeout is: 30s
+2024-04-29 15:59:59.333685500  [DEBUG] [-] [core] no timeout in status.timeout
+2024-04-29 15:59:59.333793500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.333833500  [DEBUG] [-] [core] plugin status timeout is: 30s
+2024-04-29 15:59:59.333891500  [DEBUG] [-] [core] registered hook init_http to status_http.hook_init_http priority 0
+2024-04-29 15:59:59.334083500  [DEBUG] [-] [core] registered hook capabilities to status_http.hook_capabilities priority 0
+2024-04-29 15:59:59.334162500  [DEBUG] [-] [core] registered hook unrecognized_command to status_http.hook_unrecognized_command priority 0
+2024-04-29 15:59:59.334196500  [DEBUG] [-] [core] registered hook init_master to status_http.hook_init_master priority 0
+2024-04-29 15:59:59.334246500  [DEBUG] [-] [core] registered hook init_child to status_http.hook_init_child priority 0
+2024-04-29 15:59:59.334302500  [INFO] [-] [core] Loading plugin: poste
+2024-04-29 15:59:59.334332500  [DEBUG] [-] [core] no timeout in poste.timeout
+2024-04-29 15:59:59.334447500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.334484500  [DEBUG] [-] [core] plugin poste timeout is: 30s
+2024-04-29 15:59:59.334535500  [DEBUG] [-] [core] registered hook init_master to poste.init_sqlite priority 0
+2024-04-29 15:59:59.334673500  [DEBUG] [-] [core] registered hook init_child to poste.init_sqlite priority 0
+2024-04-29 15:59:59.334709500  [INFO] [-] [core] Loading plugin: known-senders
+2024-04-29 15:59:59.334740500  [DEBUG] [-] [core] no timeout in known-senders.timeout
+2024-04-29 15:59:59.334743500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.334780500  [DEBUG] [-] [core] plugin known-senders timeout is: 30s
+2024-04-29 15:59:59.334946500  [DEBUG] [-] [core] no timeout in haraka-plugin-redis.timeout
+2024-04-29 15:59:59.334984500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.334988500  [DEBUG] [-] [core] plugin haraka-plugin-redis timeout is: 30s
+2024-04-29 15:59:59.335015500  [DEBUG] [-] [core] registered hook init_master to known-senders.init_redis_plugin priority 0
+2024-04-29 15:59:59.335043500  [DEBUG] [-] [core] registered hook init_child to known-senders.init_redis_plugin priority 0
+2024-04-29 15:59:59.335047500  [DEBUG] [-] [core] registered hook mail to known-senders.is_authenticated priority 0
+2024-04-29 15:59:59.335073500  [DEBUG] [-] [core] registered hook rcpt_ok to known-senders.check_recipient priority 0
+2024-04-29 15:59:59.335076500  [DEBUG] [-] [core] registered hook queue_ok to known-senders.update_sender priority 0
+2024-04-29 15:59:59.335102500  [DEBUG] [-] [core] registered hook data_post to known-senders.is_dkim_authenticated priority 0
+2024-04-29 15:59:59.335219500  [INFO] [-] [core] Loading plugin: stats
+2024-04-29 15:59:59.335254500  [DEBUG] [-] [core] no timeout in stats.timeout
+2024-04-29 15:59:59.335258500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335283500  [DEBUG] [-] [core] plugin stats timeout is: 30s
+2024-04-29 15:59:59.335286500  [DEBUG] [-] [core] registered hook disconnect to stats.hook_disconnect priority 0
+2024-04-29 15:59:59.335311500  [DEBUG] [-] [core] registered hook queue_ok to stats.hook_queue_ok priority 0
+2024-04-29 15:59:59.335314500  [DEBUG] [-] [core] registered hook delivered to stats.hook_delivered priority 0
+2024-04-29 15:59:59.335339500  [DEBUG] [-] [core] registered hook bounce to stats.hook_bounce priority 0
+2024-04-29 15:59:59.335381500  [DEBUG] [-] [core] registered hook reset_transaction to stats.hook_reset_transaction priority 0
+2024-04-29 15:59:59.335382500  [INFO] [-] [core] Loading plugin: guard
+2024-04-29 15:59:59.335411500  [DEBUG] [-] [core] no timeout in guard.timeout
+2024-04-29 15:59:59.335415500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335415500  [DEBUG] [-] [core] plugin guard timeout is: 30s
+2024-04-29 15:59:59.335416500  [DEBUG] [-] [core] no timeout in redis.timeout
+2024-04-29 15:59:59.335441500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335444500  [DEBUG] [-] [core] plugin redis timeout is: 30s
+2024-04-29 15:59:59.335495500  [DEBUG] [-] [core] registered hook init_master to guard.init_redis_plugin priority 0
+2024-04-29 15:59:59.335498500  [DEBUG] [-] [core] registered hook init_child to guard.init_redis_plugin priority 0
+2024-04-29 15:59:59.335499500  [DEBUG] [-] [core] registered hook connect_init to guard.hook_connect_init priority 0
+2024-04-29 15:59:59.335499500  [DEBUG] [-] [core] registered hook mail to guard.hook_mail priority 0
+2024-04-29 15:59:59.335500500  [DEBUG] [-] [core] registered hook connect to guard.hook_connect priority 0
+2024-04-29 15:59:59.335524500  [DEBUG] [-] [core] registered hook deny to guard.hook_deny priority 0
+2024-04-29 15:59:59.335528500  [INFO] [-] [core] Loading plugin: hello_block
+2024-04-29 15:59:59.335554500  [DEBUG] [-] [core] no timeout in hello_block.timeout
+2024-04-29 15:59:59.335557500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335557500  [DEBUG] [-] [core] plugin hello_block timeout is: 30s
+2024-04-29 15:59:59.335582500  [DEBUG] [-] [core] registered hook helo to hello_block.check_ymlf priority 0
+2024-04-29 15:59:59.335585500  [DEBUG] [-] [core] registered hook ehlo to hello_block.check_ymlf priority 0
+2024-04-29 15:59:59.335609500  [INFO] [-] [core] Loading plugin: block_bad_connections
+2024-04-29 15:59:59.335613500  [DEBUG] [-] [core] no timeout in block_bad_connections.timeout
+2024-04-29 15:59:59.335637500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335640500  [DEBUG] [-] [core] plugin block_bad_connections timeout is: 30s
+2024-04-29 15:59:59.335676500  [DEBUG] [-] [core] registered hook rcpt to block_bad_connections.hook_rcpt priority 0
+2024-04-29 15:59:59.335679500  [DEBUG] [-] [core] registered hook rcpt_ok to block_bad_connections.hook_rcpt_ok priority 0
+2024-04-29 15:59:59.335679500  [DEBUG] [-] [core] registered hook disconnect to block_bad_connections.hook_disconnect priority 0
+2024-04-29 15:59:59.335680500  [INFO] [-] [core] Loading plugin: limits
+2024-04-29 15:59:59.335727500  [DEBUG] [-] [core] no timeout in limits.timeout
+2024-04-29 15:59:59.335730500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335731500  [DEBUG] [-] [core] plugin limits timeout is: 30s
+2024-04-29 15:59:59.335731500  [DEBUG] [-] [core] registered hook queue_ok to limits.hook_queue_ok priority 0
+2024-04-29 15:59:59.335758500  [DEBUG] [-] [core] registered hook data to limits.hook_data priority 0
+2024-04-29 15:59:59.335761500  [INFO] [-] [core] Loading plugin: geoip
+2024-04-29 15:59:59.335788500  [DEBUG] [-] [core] no timeout in geoip.timeout
+2024-04-29 15:59:59.335792500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335817500  [DEBUG] [-] [core] plugin geoip timeout is: 30s
+2024-04-29 15:59:59.335820500  [DEBUG] [-] [geoip] missing DB /opt/ipgeo/GeoLite2-City.mmdb
+2024-04-29 15:59:59.335873500  [INFO] [-] [core] Loading plugin: log
+2024-04-29 15:59:59.335876500  [DEBUG] [-] [core] no timeout in log.timeout
+2024-04-29 15:59:59.335904500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.335931500  [DEBUG] [-] [core] plugin log timeout is: 30s
+2024-04-29 15:59:59.335935500  [DEBUG] [-] [log] Plugin log: {"main":{"elasticsearch":false,"elasticsearch_host":"localhost:9200"}}
+2024-04-29 15:59:59.335959500  [DEBUG] [-] [core] registered hook reset_transaction to log.hook_reset_transaction priority 0
+2024-04-29 15:59:59.336030500  [DEBUG] [-] [core] registered hook disconnect to log.hook_disconnect priority 0
+2024-04-29 15:59:59.336034500  [DEBUG] [-] [core] registered hook mail to log.hook_mail priority 0
+2024-04-29 15:59:59.336086500  [DEBUG] [-] [core] registered hook deferred to log.hook_deferred priority 0
+2024-04-29 15:59:59.336118500  [DEBUG] [-] [core] registered hook bounce to log.hook_bounce priority 0
+2024-04-29 15:59:59.336122500  [DEBUG] [-] [core] registered hook delivered to log.hook_delivered priority 0
+2024-04-29 15:59:59.336164500  [DEBUG] [-] [core] registered hook log to log.hook_log priority 0
+2024-04-29 15:59:59.336167500  [INFO] [-] [core] Loading plugin: relay
+2024-04-29 15:59:59.336193500  [DEBUG] [-] [core] no timeout in relay.timeout
+2024-04-29 15:59:59.336196500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336221500  [DEBUG] [-] [core] plugin relay timeout is: 30s
+2024-04-29 15:59:59.336248500  [DEBUG] [-] [core] registered hook connect_init to relay.acl priority 0
+2024-04-29 15:59:59.336274500  [DEBUG] [-] [core] registered hook connect to relay.pass_relaying priority 0
+2024-04-29 15:59:59.336277500  [DEBUG] [-] [core] registered hook get_mx to relay.force_routing priority 0
+2024-04-29 15:59:59.336301500  [INFO] [-] [core] Loading plugin: tls
+2024-04-29 15:59:59.336305500  [DEBUG] [-] [core] no timeout in tls.timeout
+2024-04-29 15:59:59.336328500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336355500  [DEBUG] [-] [core] plugin tls timeout is: 30s
+2024-04-29 15:59:59.336359500  [INFO] [-] [core] loading tls.ini
+2024-04-29 15:59:59.336382500  [DEBUG] [-] [core] loading dhparams from dhparams.pem
+2024-04-29 15:59:59.336386500  [DEBUG] [-] [tls] Will disable STARTTLS for failing TLS hosts
+2024-04-29 15:59:59.336422500  [DEBUG] [-] [core] registered hook capabilities to tls.advertise_starttls priority 0
+2024-04-29 15:59:59.336475500  [DEBUG] [-] [core] registered hook unrecognized_command to tls.upgrade_connection priority 0
+2024-04-29 15:59:59.336479500  [DEBUG] [-] [core] registered hook disconnect to tls.hook_disconnect priority 0
+2024-04-29 15:59:59.336503500  [INFO] [-] [core] Loading plugin: redis
+2024-04-29 15:59:59.336507500  [DEBUG] [-] [core] no timeout in redis.timeout
+2024-04-29 15:59:59.336639500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336644500  [DEBUG] [-] [core] plugin redis timeout is: 30s
+2024-04-29 15:59:59.336645500  [DEBUG] [-] [core] registered hook init_master to redis.init_redis_shared priority 0
+2024-04-29 15:59:59.336646500  [DEBUG] [-] [core] registered hook init_child to redis.init_redis_shared priority 0
+2024-04-29 15:59:59.336646500  [INFO] [-] [core] Loading plugin: auth/poste
+2024-04-29 15:59:59.336647500  [DEBUG] [-] [core] no timeout in auth/poste.timeout
+2024-04-29 15:59:59.336678500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336705500  [DEBUG] [-] [core] plugin auth/poste timeout is: 30s
+2024-04-29 15:59:59.336732500  [DEBUG] [-] [core] no timeout in auth/auth_base.timeout
+2024-04-29 15:59:59.336735500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336760500  [DEBUG] [-] [core] plugin auth/auth_base timeout is: 30s
+2024-04-29 15:59:59.336809500  [INFO] [-] [auth/poste] default_auth_domain=, tls_required=true
+2024-04-29 15:59:59.336813500  [DEBUG] [-] [core] registered hook capabilities to auth/poste.hook_capabilities priority 0
+2024-04-29 15:59:59.336813500  [DEBUG] [-] [core] registered hook unrecognized_command to auth/poste.hook_unrecognized_command priority 0
+2024-04-29 15:59:59.336840500  [INFO] [-] [core] Loading plugin: rspamd
+2024-04-29 15:59:59.336867500  [DEBUG] [-] [core] no timeout in rspamd.timeout
+2024-04-29 15:59:59.336893500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336896500  [DEBUG] [-] [core] plugin rspamd timeout is: 30s
+2024-04-29 15:59:59.336920500  [DEBUG] [-] [core] registered hook data_post to rspamd.hook_data_post priority 0
+2024-04-29 15:59:59.336947500  [INFO] [-] [core] Loading plugin: rcpt_database
+2024-04-29 15:59:59.336950500  [DEBUG] [-] [core] no timeout in rcpt_database.timeout
+2024-04-29 15:59:59.336974500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.336977500  [DEBUG] [-] [core] plugin rcpt_database timeout is: 30s
+2024-04-29 15:59:59.337002500  [DEBUG] [-] [core] registered hook mail to rcpt_database.is_remote_sender priority 0
+2024-04-29 15:59:59.337027500  [DEBUG] [-] [core] registered hook rcpt to rcpt_database.database_rcpt priority 0
+2024-04-29 15:59:59.337053500  [DEBUG] [-] [core] registered hook data_post to rcpt_database.hook_data_post priority 0
+2024-04-29 15:59:59.337057500  [DEBUG] [-] [core] registered hook get_mx to rcpt_database.hook_get_mx priority 0
+2024-04-29 15:59:59.337083500  [INFO] [-] [core] Loading plugin: srs
+2024-04-29 15:59:59.337086500  [DEBUG] [-] [core] no timeout in srs.timeout
+2024-04-29 15:59:59.337124500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337152500  [DEBUG] [-] [core] plugin srs timeout is: 30s
+2024-04-29 15:59:59.337155500  [DEBUG] [-] [core] registered hook data_post to srs.hook_data_post priority 0
+2024-04-29 15:59:59.337193500  [DEBUG] [-] [core] registered hook rcpt to srs.hook_rcpt priority 0
+2024-04-29 15:59:59.337222500  [DEBUG] [-] [core] registered hook bounce to srs.hook_bounce priority 0
+2024-04-29 15:59:59.337225500  [INFO] [-] [core] Loading plugin: discard
+2024-04-29 15:59:59.337249500  [DEBUG] [-] [core] no timeout in discard.timeout
+2024-04-29 15:59:59.337275500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337301500  [DEBUG] [-] [core] plugin discard timeout is: 30s
+2024-04-29 15:59:59.337304500  [DEBUG] [-] [core] registered hook queue to discard.discard priority 0
+2024-04-29 15:59:59.337328500  [DEBUG] [-] [core] registered hook queue_outbound to discard.discard priority 0
+2024-04-29 15:59:59.337331500  [INFO] [-] [core] Loading plugin: dovecot_quota
+2024-04-29 15:59:59.337355500  [DEBUG] [-] [core] no timeout in dovecot_quota.timeout
+2024-04-29 15:59:59.337382500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337385500  [DEBUG] [-] [core] plugin dovecot_quota timeout is: 30s
+2024-04-29 15:59:59.337408500  [DEBUG] [-] [core] no timeout in rcpt_to.host_list_base.timeout
+2024-04-29 15:59:59.337411500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337469500  [DEBUG] [-] [core] plugin rcpt_to.host_list_base timeout is: 30s
+2024-04-29 15:59:59.337473500  [DEBUG] [-] [core] registered hook mail to dovecot_quota.hook_mail priority 0
+2024-04-29 15:59:59.337473500  [DEBUG] [-] [core] registered hook data_post to dovecot_quota.hook_data_post priority 0
+2024-04-29 15:59:59.337499500  [INFO] [-] [core] Loading plugin: attachment
+2024-04-29 15:59:59.337502500  [DEBUG] [-] [core] no timeout in attachment.timeout
+2024-04-29 15:59:59.337541500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337570500  [DEBUG] [-] [core] plugin attachment timeout is: 30s
+2024-04-29 15:59:59.337574500  [DEBUG] [-] [core] registered hook data_post to attachment.wait_for_attachment_hooks priority 0
+2024-04-29 15:59:59.337599500  [DEBUG] [-] [core] registered hook data_post to attachment.check_attachments priority 0
+2024-04-29 15:59:59.337625500  [DEBUG] [-] [core] registered hook init_child to attachment.hook_init_child priority 0
+2024-04-29 15:59:59.337652500  [DEBUG] [-] [core] registered hook init_master to attachment.hook_init_master priority 0
+2024-04-29 15:59:59.337655500  [DEBUG] [-] [core] registered hook data to attachment.hook_data priority 0
+2024-04-29 15:59:59.337680500  [INFO] [-] [core] Loading plugin: strict_from
+2024-04-29 15:59:59.337684500  [DEBUG] [-] [core] no timeout in strict_from.timeout
+2024-04-29 15:59:59.337707500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337734500  [DEBUG] [-] [core] plugin strict_from timeout is: 30s
+2024-04-29 15:59:59.337737500  [DEBUG] [-] [strict_from] Plugin enabled: {"main":{"disabled":true}}
+2024-04-29 15:59:59.337761500  [DEBUG] [-] [strict_from] Plugin enabled: false
+2024-04-29 15:59:59.337764500  [DEBUG] [-] [core] registered hook data_post to strict_from.from_check priority 0
+2024-04-29 15:59:59.337788500  [INFO] [-] [core] Loading plugin: privacy
+2024-04-29 15:59:59.337814500  [DEBUG] [-] [core] no timeout in privacy.timeout
+2024-04-29 15:59:59.337817500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337842500  [DEBUG] [-] [core] plugin privacy timeout is: 30s
+2024-04-29 15:59:59.337867500  [DEBUG] [-] [core] registered hook queue_outbound to privacy.hook_queue_outbound priority 0
+2024-04-29 15:59:59.337895500  [INFO] [-] [core] Loading plugin: inspection
+2024-04-29 15:59:59.337898500  [DEBUG] [-] [core] no timeout in inspection.timeout
+2024-04-29 15:59:59.337924500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.337928500  [DEBUG] [-] [core] plugin inspection timeout is: 30s
+2024-04-29 15:59:59.337953500  [INFO] [-] [inspection] cfg={"main":{"log_subject":false,"copy_emails":false,"target_email":""}}
+2024-04-29 15:59:59.337980500  [DEBUG] [-] [core] registered hook data_post to inspection.hook_data_post priority 0
+2024-04-29 15:59:59.337983500  [INFO] [-] [core] Loading plugin: dkim_sign
+2024-04-29 15:59:59.338008500  [DEBUG] [-] [core] no timeout in dkim_sign.timeout
+2024-04-29 15:59:59.338033500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338060500  [DEBUG] [-] [core] plugin dkim_sign timeout is: 30s
+2024-04-29 15:59:59.338063500  [DEBUG] [-] [core] registered hook pre_send_trans_email to dkim_sign.hook_pre_send_trans_email priority 0
+2024-04-29 15:59:59.338087500  [DEBUG] [-] [core] registered hook queue_outbound to dkim_sign.hook_queue_outbound priority 0
+2024-04-29 15:59:59.338090500  [INFO] [-] [core] Loading plugin: outbound_parameters
+2024-04-29 15:59:59.338113500  [DEBUG] [-] [core] no timeout in outbound_parameters.timeout
+2024-04-29 15:59:59.338140500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338143500  [DEBUG] [-] [core] plugin outbound_parameters timeout is: 30s
+2024-04-29 15:59:59.338167500  [DEBUG] [-] [core] registered hook queue_outbound to outbound_parameters.hook_queue_outbound priority 0
+2024-04-29 15:59:59.338170500  [INFO] [-] [core] Loading plugin: queue/generic
+2024-04-29 15:59:59.338206500  [DEBUG] [-] [core] no timeout in queue/generic.timeout
+2024-04-29 15:59:59.338234500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338237500  [DEBUG] [-] [core] plugin queue/generic timeout is: 30s
+2024-04-29 15:59:59.338261500  [DEBUG] [-] [core] registered hook queue to queue/generic.hook_queue priority 0
+2024-04-29 15:59:59.338264500  [INFO] [-] [core] Loading plugin: watch
+2024-04-29 15:59:59.338301500  [DEBUG] [-] [core] no timeout in watch.timeout
+2024-04-29 15:59:59.338330500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338333500  [DEBUG] [-] [core] plugin watch timeout is: 30s
+2024-04-29 15:59:59.338378500  [DEBUG] [-] [core] no timeout in haraka-plugin-redis.timeout
+2024-04-29 15:59:59.338408500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338437500  [DEBUG] [-] [core] plugin haraka-plugin-redis timeout is: 30s
+2024-04-29 15:59:59.338440500  [DEBUG] [-] [core] registered hook init_master to watch.redis_subscribe_all_results priority 0
+2024-04-29 15:59:59.338464500  [DEBUG] [-] [core] registered hook init_child to watch.redis_subscribe_all_results priority 0
+2024-04-29 15:59:59.338490500  [DEBUG] [-] [core] registered hook deny to watch.w_deny priority 0
+2024-04-29 15:59:59.338517500  [DEBUG] [-] [core] registered hook queue_ok to watch.queue_ok priority 0
+2024-04-29 15:59:59.338518500  [DEBUG] [-] [core] registered hook init_http to watch.hook_init_http priority 0
+2024-04-29 15:59:59.338544500  [DEBUG] [-] [core] registered hook init_wss to watch.hook_init_wss priority 0
+2024-04-29 15:59:59.338571500  [INFO] [-] [core] Loading plugin: limit
+2024-04-29 15:59:59.338574500  [DEBUG] [-] [core] no timeout in limit.timeout
+2024-04-29 15:59:59.338620500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338624500  [DEBUG] [-] [core] plugin limit timeout is: 30s
+2024-04-29 15:59:59.338649500  [DEBUG] [-] [core] no timeout in haraka-plugin-redis.timeout
+2024-04-29 15:59:59.338652500  [DEBUG] [-] [core] no timeout in plugin_timeout
+2024-04-29 15:59:59.338677500  [DEBUG] [-] [core] plugin haraka-plugin-redis timeout is: 30s
+2024-04-29 15:59:59.341347500  [INFO] [-] [core] getting SocketOpts for SMTPS server
+2024-04-29 15:59:59.344478500  [NOTICE] [-] [core] Listening on [::0]:587
+2024-04-29 15:59:59.344738500  [INFO] [-] [core] Creating TLS server on [::0]:465
+2024-04-29 15:59:59.348508500  [DEBUG] [-] [core] addOCSP: not available
+2024-04-29 15:59:59.348539500  [NOTICE] [-] [core] Listening on [::0]:465
+2024-04-29 15:59:59.348609500  [NOTICE] [-] [server] Switching from current gid: 0
+2024-04-29 15:59:59.349331500  [NOTICE] [-] [server] New gid: 8
+2024-04-29 15:59:59.349415500  [NOTICE] [-] [server] Switching from current uid: 0
+2024-04-29 15:59:59.349744500  [NOTICE] [-] [server] New uid: 88
+2024-04-29 15:59:59.349824500  [DEBUG] [-] [server] running init_master hooks
+2024-04-29 15:59:59.350025500  [DEBUG] [-] [server] running init_master hook in status_http plugin
+2024-04-29 15:59:59.350912500  [DEBUG] [-] [server]  hook=init_master plugin=status_http function=hook_init_master params="" retval=CONT msg=""
+2024-04-29 15:59:59.350917500  [DEBUG] [-] [server] running init_master hook in poste plugin
+2024-04-29 15:59:59.351444500  [DEBUG] [-] [server]  hook=init_master plugin=poste function=init_sqlite params="" retval=CONT msg=""
+2024-04-29 15:59:59.351473500  [DEBUG] [-] [server] running init_master hook in known-senders plugin
+2024-04-29 15:59:59.366019500  [INFO] [-] [known-senders] connected to redis://127.0.0.1:6379
+2024-04-29 15:59:59.366385500  [DEBUG] [-] [server]  hook=init_master plugin=known-senders function=init_redis_plugin params="" retval=CONT msg=""
+2024-04-29 15:59:59.366457500  [DEBUG] [-] [server] running init_master hook in guard plugin
+2024-04-29 15:59:59.370378500  [DEBUG] [-] [geoip] loaded maxmind db /opt/ipgeo/GeoLite2-Country.mmdb
+2024-04-29 15:59:59.370476500  [DEBUG] [-] [geoip] missing DB /opt/ipgeo/GeoLite2-ASN.mmdb
+2024-04-29 15:59:59.370512500  [DEBUG] [-] [geoip] loaded maxmind with 1 DBs
+2024-04-29 15:59:59.370557500  [DEBUG] [-] [core] registered hook connect to geoip.lookup_maxmind priority 0
+2024-04-29 15:59:59.370596500  [DEBUG] [-] [core] registered hook data_post to geoip.add_headers priority 0
+2024-04-29 15:59:59.371150500  [INFO] [-] [guard] connected to redis://127.0.0.1:6379
+2024-04-29 15:59:59.371276500  [DEBUG] [-] [server]  hook=init_master plugin=guard function=init_redis_plugin params="" retval=CONT msg=""
+2024-04-29 15:59:59.371385500  [DEBUG] [-] [server] running init_master hook in redis plugin
+2024-04-29 15:59:59.373875500  [INFO] [-] [redis] connected to redis://127.0.0.1:6379
+2024-04-29 15:59:59.374138500  [DEBUG] [-] [server]  hook=init_master plugin=redis function=init_redis_shared params="" retval=CONT msg=""
+2024-04-29 15:59:59.374252500  [DEBUG] [-] [server] running init_master hook in attachment plugin
+2024-04-29 15:59:59.374709500  [DEBUG] [-] [attachment] found bsdtar in /usr/bin
+2024-04-29 15:59:59.374831500  [DEBUG] [-] [server]  hook=init_master plugin=attachment function=hook_init_master params="" retval=CONT msg=""
+2024-04-29 15:59:59.375050500  [DEBUG] [-] [server] running init_master hook in watch plugin
+2024-04-29 15:59:59.386124500  [DEBUG] [-] [watch] pSubscribed to result-*
+2024-04-29 15:59:59.386298500  [DEBUG] [-] [server]  hook=init_master plugin=watch function=redis_subscribe_all_results params="" retval=CONT msg=""
+2024-04-29 15:59:59.386876500  [INFO] [-] [core] [outbound] Loading outbound queue from /data/queue/submission
+2024-04-29 15:59:59.519917500  [INFO] [-] [core] express loaded at Server.http.express
+2024-04-29 15:59:59.519927500  [INFO] [-] [core] express app is at Server.http.app
+2024-04-29 15:59:59.520597500  [NOTICE] [-] [core] Listening on 127.0.0.1:11381
+2024-04-29 15:59:59.520708500  [DEBUG] [-] [server] running init_http hooks
+2024-04-29 15:59:59.520774500  [DEBUG] [-] [server] running init_http hook in status_http plugin
+2024-04-29 15:59:59.522442500  [INFO] [-] [status_http] status init_http done
+2024-04-29 15:59:59.522563500  [DEBUG] [-] [server]  hook=init_http plugin=status_http function=hook_init_http params="" retval=CONT msg=""
+2024-04-29 15:59:59.522602500  [DEBUG] [-] [server] running init_http hook in watch plugin
+2024-04-29 15:59:59.522917500  [INFO] [-] [watch] watch init_http done
+2024-04-29 15:59:59.522984500  [DEBUG] [-] [server]  hook=init_http plugin=watch function=hook_init_http params="" retval=CONT msg=""
+2024-04-29 15:59:59.523119500  [INFO] [-] [core] init_http_respond
+2024-04-29 15:59:59.523637500  [INFO] [-] [core] Server.http.wss loaded
+2024-04-29 15:59:59.523680500  [DEBUG] [-] [server] running init_wss hooks
+2024-04-29 15:59:59.523711500  [DEBUG] [-] [server] running init_wss hook in watch plugin
+2024-04-29 15:59:59.523824500  [INFO] [-] [watch] watch init_wss
+2024-04-29 15:59:59.523958500  [INFO] [-] [watch] watch init_wss done
+2024-04-29 15:59:59.524078500  [DEBUG] [-] [server]  hook=init_wss plugin=watch function=hook_init_wss params="" retval=CONT msg=""
+2024-04-29 15:59:59.524187500  [INFO] [-] [core] init_wss_respond
+2024-04-29 15:59:59.524741500  [INFO] [-] [core] [outbound] Loading the queue...
+2024-04-29 15:59:59.524972500  [DEBUG] [-] [core] [outbound] [pid: undefined] 0 files loaded
+2024-04-29 15:59:59.525133500  [INFO] [-] [core] [outbound] [pid: undefined] 0 files in my delivery queue
+2024-04-29 15:59:59.525224500  [INFO] [-] [core] [outbound] [pid: undefined] 0 files in my load queue
+2024-04-29 15:59:59.525330500  [INFO] [-] [core] [outbound] [pid: undefined] 0 files in my temp fail queue

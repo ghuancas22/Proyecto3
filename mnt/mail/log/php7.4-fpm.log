@@ -13,3 +13,8 @@
 [29-Apr-2024 15:40:47] NOTICE: systemd monitor interval set to 10000ms
 [29-Apr-2024 15:46:12] NOTICE: Terminating ...
 [29-Apr-2024 15:46:12] NOTICE: exiting, bye-bye!
+[29-Apr-2024 15:59:57] NOTICE: fpm is running, pid 688
+[29-Apr-2024 15:59:57] NOTICE: ready to handle connections
+[29-Apr-2024 15:59:57] NOTICE: systemd monitor interval set to 10000ms
+[29-Apr-2024 16:05:07] NOTICE: Terminating ...
+[29-Apr-2024 16:05:07] NOTICE: exiting, bye-bye!

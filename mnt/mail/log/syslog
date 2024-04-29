@@ -11,3 +11,8 @@ Apr 29 15:40:47 2411782e8179 rsyslogd: [origin software="rsyslogd" swVersion="8.
 Apr 29 15:40:47 2411782e8179 cron[692]: (CRON) INFO (pidfile fd = 3)
 Apr 29 15:40:47 2411782e8179 cron[692]: (CRON) INFO (Running @reboot jobs)
 Apr 29 15:40:47 2411782e8179 dovecot: master: Dovecot v2.3.21 (47349e2482) starting up for imap, pop3, lmtp, sieve
+Apr 29 15:59:57 31e8d8534d3e rsyslogd: [origin software="rsyslogd" swVersion="8.2102.0" x-pid="723" x-info="https://www.rsyslog.com"] start
+Apr 29 15:59:57 31e8d8534d3e dovecot: master: Dovecot v2.3.21 (47349e2482) starting up for imap, pop3, lmtp, sieve
+Apr 29 15:59:57 31e8d8534d3e cron[712]: (CRON) INFO (pidfile fd = 3)
+Apr 29 15:59:57 31e8d8534d3e cron[712]: (CRON) INFO (Running @reboot jobs)
+Apr 29 16:05:07 31e8d8534d3e dovecot: master: Warning: Killed with signal 15 (by pid=676 uid=0 code=kill)
