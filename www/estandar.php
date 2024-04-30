@@ -1,11 +1,11 @@
 <?php 
-$host = "mysql";  
-$database = "HotelMoro"; 
-$user = "admin"; 
-$password = "admin123"; 
-$conexion = mysqli_connect($host, $user, $password,$database); 
+// Conexión a la base de datos MySQL
+$mysqli = new mysqli("mysql", "admin", "admin123", "HotelMoro");
 
-if (!$conexion)   die("No ha podido realizarse la conexión".mysqli_connect_error()); 
+// Verificar la conexión
+if ($mysqli->connect_error) {
+  die("Error de conexión a la base de datos: " . $mysqli->connect_error);
+}
 ?>
 <html>
 <body>
