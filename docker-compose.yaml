@@ -64,6 +64,7 @@ services:
       dockerfile: Dockerfile # Especificamos el contexto y el archivo Dockerfile
     volumes:  # Definimos los volumenes adicionales
       - ./www:/var/www/html:rw # Monta el directorio local "./www" en el directorio "/var/www/html" del contenedor con permisos de lectura y escritura.
+    ports:
       - 80:80 # Se Establece conexion el puerto 80 del host al puerto 80 del contenedor.
     depends_on:
       - mysql  # Indicamos que este servicio depende del servicio "mysql".
