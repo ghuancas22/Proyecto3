@@ -1,12 +1,3 @@
-<?php 
-// Conexión a la base de datos MySQL
-$mysqli = new mysqli("mysql", "admin", "admin123", "HotelMoro");
-
-// Verificar la conexión
-if ($mysqli->connect_error) {
-  die("Error de conexión a la base de datos: " . $mysqli->connect_error);
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
