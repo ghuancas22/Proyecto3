@@ -52,7 +52,7 @@ services:
       - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0 #Especificamos  las direcciones IP permitidas para la transeferencia de zona en CoreDNS
       - COREDNS_IP=192.168.1.100 # Definimos la direccion IP utilitzada por CoreDNS
     networks:
-      - redhotelmoroA # Definimos la red como redhotelmoro 
+      - redhotelmoro # Definimos la red como redhotelmoro 
 
 
   # PHP-Apache  (OK)
