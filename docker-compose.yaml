@@ -25,33 +25,34 @@ services:
   # Phpldap (OK)
   phpldapadmin: #especificamos el nombre del servicio
     image: osixia/phpldapadmin:latest #indicamos el nombre de la imagen del contenedor más reciente (con la etiqueta latest)
-    container_name: phpldapadmin
-    hostname: phpldapadmin
+    container_name: phpldapadmin #Definimos el nombre del contenedor como phpldapadmin
+    hostname: phpldapadmin #Asignamos el nombre del host del contendor como phpldapadmin
     ports:
-      - "100:80"
+      - "100:80" # Se establece una conexion entre el puerto 100 del host y el puerto 80.
+    # Configuración de las variables de enotrno
     environment:
-      - PHPLDAPADMIN_LDAP_HOSTS=openldap
-      - PHPLDAPADMIN_HTTPS=false
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap # Configura el host LDAP al que PHP LDAP Admin se conectarà
+      - PHPLDAPADMIN_HTTPS=false # Se deshabilita HTTPS para PHP LDAP Admin
     depends_on:
-      - openldap
+      - openldap # define que este servicio depende del servicio openldap
     networks:
-      - redhotelmoro
+      - redhotelmoro # Asignamos el contenedor a la red "redhotelmoro"
 
   #CoreDNS (OK)
-  coredns:
+  coredns: # Se utiliza la imagen coredns/coredns para este servicio
     image: coredns/coredns #Imagen de DNS
-    container_name: coredns
-    restart: always
+    container_name: coredns # Definimos el nombre del contenedor como "coredns"
+    restart: always #Indicamos que el contenedor debe reiniciarse siempre que de detenga
     ports:
-      - "54:54/udp"
+      - "54:54/udp" # Se establece conexion del puerto 54 UDP del host al puerto 54 UDP del contenedor
     volumes:
-      - './Corefile:/etc/coredns:rw'
-    environment:
-      - COREDNS_ALLOW_UPDATE=yes
-      - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0
-      - COREDNS_IP=192.168.1.100
+      - './Corefile:/etc/coredns:rw' # Montamos el archivo corefile dentro del contenedor con permisos de lectura y escritura
+    environment: 
+      - COREDNS_ALLOW_UPDATE=yes #Se permiten las actualizaciones en CoreDNS
+      - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0 #Especificamos  las direcciones IP permitidas para la transeferencia de zona en CoreDNS
+      - COREDNS_IP=192.168.1.100 # Definimos la direccion IP utilitzada por CoreDNS
     networks:
-      - redhotelmoro
+      - redhotelmoroA # Definimos la red como redhotelmoro 
 
 
   # PHP-Apache  (OK)
