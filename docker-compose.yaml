@@ -100,14 +100,23 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: admin123
-      PMA_LDAP_SERVER_HOST: openldap
-      PMA_LDAP_SERVER_PORT: 636
-      PMA_LDAP_BIND_USER: "cn=admin,dc=hotelmoro,dc=com"  # Ajusta el usuario LDAP según tu configuración
-      PMA_LDAP_BIND_PASS: admin123  # Ajusta la contraseña LDAP según tu configuración
-      PMA_USER_DN_TEMPLATE: "uid=%s,ou=users,dc=hotelmoro,dc=com"  # Ajusta la plantilla DN del usuario LDAP según tu configuración
-      PMA_CONTROL_USER: "true"
     volumes:
       - './mysql:/containerPath:ro'
+    networks:
+      - redhotelmoro
+
+  # LDAP Account Manager (LAM) para sincronización
+  ldap-account-manager:
+    image: osixia/phpldapadmin:latest
+    container_name: ldap-account-manager
+    hostname: ldap-account-manager
+    ports:
+      - "101:80"
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+      - PHPLDAPADMIN_HTTPS=false
+    depends_on:
+      - openldap
     networks:
       - redhotelmoro
 
