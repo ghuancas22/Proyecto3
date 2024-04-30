@@ -7,9 +7,7 @@ services:
     hostname: openldap
     ports:  # Hemos definido el puerto 636 del contenedor al puerto 636 del host para la comunicación TLS
       - "636:636"
-    volumes:  # Hemos montado volúmenes para almacenar datos. 
-      - './certificados:/container/service/slapd/assets/certs:rw' #certificados
-      # Configuracion de las variables de entorno para OpenLDAP
+    # Configuracion de las variables de entorno para OpenLDAP
     environment:
       - LDAP_ORGANISATION=hotelmoro
       - LDAP_DOMAIN=hotelmoro.com
@@ -120,8 +118,6 @@ services:
       - HTTPS_PORT=4443
       - DISABLE_CLAMAV=TRUE
       - DNS_SERVER=192.168.1.100
-    volumes:
-      - './mnt/mail:/data:rw'
     networks:
       - redhotelmoro
 
