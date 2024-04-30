@@ -1,13 +1,3 @@
-<?php 
-// Conexión a la base de datos MySQL
-$mysqli = new mysqli("mysql", "admin", "admin123", "HotelMoro");
-
-// Verificar la conexión
-if ($mysqli->connect_error) {
-  die("Error de conexión a la base de datos: " . $mysqli->connect_error);
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,7 +128,8 @@ function cargarContenido(url) {
     <a href="#" onclick="cargarContenido('estandar.php')">Estándar</a>
     <a href="#" onclick="cargarContenido('familiar.php')">Familiar</a>
     <a href="#" onclick="cargarContenido('suite.php')">Suite</a>
-    <a href="#" onclick="cargarContenido('personal.php')">Iniciar sesion</a>
+    <a href="#" onclick="cargarContenido('personal.php')">Iniciar sesión</a>
+    <a href="#" onclick="cargarContenido('reservar.php')">Reservar</a> 
 </div>
 <div class="row">
     <div class="card">
