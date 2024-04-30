@@ -59,8 +59,8 @@ services:
   PHP-Apache:
     image: php:apache  # Utilizamos la imagen de PHP con servidor Apache.
     container_name: PHP-Apache # Asignamos un nombre al contenedor 
-    build: #
-      context: #
+    build: 
+      context: .
       dockerfile: Dockerfile # Especificamos el contexto y el archivo Dockerfile
     volumes:  # Definimos los volumenes adicionales
       - ./www:/var/www/html:rw # Monta el directorio local "./www" en el directorio "/var/www/html" del contenedor con permisos de lectura y escritura.
@@ -148,7 +148,7 @@ services:
     networks:
       - redhotelmoro
 
-      
+
   # Portainer (Administrador de Servicios)
   portainer:
     image: portainer/portainer-ce:latest
