@@ -78,42 +78,44 @@ services:
   # MySQL  (OK)
   mysql:
     image: mysql  #Utilizamos la imagen mysql
-    restart: always 
+    restart: always # # Indicamos que el contenedor se reinicie automáticamente siempre que se detenga.
+     # Configuración de las variables de enotrno
     environment:
-      MYSQL_ROOT_PASSWORD: admin123
-      MYSQL_DATABASE: HotelMoro
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin123
+      MYSQL_ROOT_PASSWORD: admin123  #Establecemos la contraseña de root para MySQL.
+      MYSQL_DATABASE: HotelMoro # Creamos una base de datos llamada HotelMoro
+      MYSQL_USER: admin # Creamos una usuario llamado admin
+      MYSQL_PASSWORD: admin123 # Establecemos la contraseña al usuario 
     ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql:/docker-entrypoint-initdb.d:rw
+      - "3306:3306" # Se establece una conexion al puerto 3306 del host al puerto 3306 del contenedor
+    volumes: # Definimos volumenes adicionales
+      - ./mysql:/docker-entrypoint-initdb.d:rw # Montamos el directorio local "./mysql" en el directorio "/docker-entrypoint-initdb.d" del contenedor con permisos de lectura y escritura.
     networks:
-      - redhotelmoro
+      - redhotelmoro # Asignamos este servicio a la red "redhotelmoro".
 
   # PHPMyAdmin (OK)
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    links:
-      - mysql
+    image: phpmyadmin/phpmyadmin # Utilizamos la imagen de PHPMyAdmin.
+    links: 
+      - mysql   # Indicamos que este servicio se vincule al servicio "Mysql"
     ports:
-      - "90:80"
+      - "90:80" # Se establece conexion el puerto 90 del host al puerto 80 del contenedor.
+      # Configuración de las variables de enotrno
     environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: admin123
-    volumes:
-      - './mysql:/containerPath:ro'
+      PMA_HOST: mysql  # Especificamos el host donde se encuentra el servidor MySQL al que PHPMyAdmin se conectará.
+      PMA_PORT: 3306  # # Especificamos el puerto del servidor MySQL al que PHPMyAdmin se conectará.
+      MYSQL_ROOT_PASSWORD: admin123 # # Establecemos la contraseña de root para MySQL.
+    volumes: # Definimos los volumes adicionales
+      - './mysql:/containerPath:ro' # Montamos el directorio local "./mysql" en el directorio "/docker-entrypoint-initdb.d" del contenedor con permisos de lectura y escritura.
     networks:
-      - redhotelmoro
+      - redhotelmoro # Asignamos este servicio a la red "redhotelmoro".
 
   # Portainer (Administrador de Servicios)
   portainer:
-    image: portainer/portainer-ce:latest
-    container_name: portainer
-    restart: always
+    image: portainer/portainer-ce:latest  # Utiliza la imagen de Portainer la màs reciente
+    container_name: portainer # Asignamos un nombre al contenedor.
+    restart: always # Indicamos que el contenedor se reinicie automáticamente siempre que se detenga.
     ports:
-      - "9000:9000"
+      - "9000:9000" # Se establece conexion el puerto 9000 del host al puerto 9000 del contenedor.
     environment:
       - ADMIN_USERNAME=admin
       - ADMIN_PASSWORD=administrador
