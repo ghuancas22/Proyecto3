@@ -148,9 +148,7 @@ services:
     networks:
       - redhotelmoro
 
-
-
-
+      
   # Portainer (Administrador de Servicios)
   portainer:
     image: portainer/portainer-ce:latest
