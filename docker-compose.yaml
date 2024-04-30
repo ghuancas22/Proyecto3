@@ -105,7 +105,7 @@ services:
       PMA_LDAP_BIND_USER: "cn=admin,dc=hotelmoro,dc=com"  # Ajusta el usuario LDAP según tu configuración
       PMA_LDAP_BIND_PASS: admin123  # Ajusta la contraseña LDAP según tu configuración
       PMA_USER_DN_TEMPLATE: "uid=%s,ou=users,dc=hotelmoro,dc=com"  # Ajusta la plantilla DN del usuario LDAP según tu configuración
-      PMA_CONTROL_USER: true
+      PMA_CONTROL_USER: "true"
     volumes:
       - './mysql:/containerPath:ro'
     networks:
