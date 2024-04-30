@@ -75,8 +75,8 @@ services:
 
   # MySQL  (OK)
   mysql:
-    image: mysql
-    restart: always
+    image: mysql  #Utilizamos la imagen mysql
+    restart: always 
     environment:
       MYSQL_ROOT_PASSWORD: admin123
       MYSQL_DATABASE: HotelMoro
