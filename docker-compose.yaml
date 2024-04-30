@@ -39,7 +39,7 @@ services:
 
   #CoreDNS (OK)
   coredns:
-    image: coredns/coredns
+    image: coredns/coredns #Imagen de DNS
     container_name: coredns
     restart: always
     ports:
