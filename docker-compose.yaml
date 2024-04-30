@@ -100,6 +100,12 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: admin123
+      PMA_LDAP_SERVER_HOST: openldap
+      PMA_LDAP_SERVER_PORT: 636
+      PMA_LDAP_BIND_USER: "cn=admin,dc=hotelmoro,dc=com"  # Ajusta el usuario LDAP según tu configuración
+      PMA_LDAP_BIND_PASS: admin123  # Ajusta la contraseña LDAP según tu configuración
+      PMA_USER_DN_TEMPLATE: "uid=%s,ou=users,dc=hotelmoro,dc=com"  # Ajusta la plantilla DN del usuario LDAP según tu configuración
+      PMA_CONTROL_USER: true
     volumes:
       - './mysql:/containerPath:ro'
     networks:
