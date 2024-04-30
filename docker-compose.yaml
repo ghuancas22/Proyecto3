@@ -105,51 +105,6 @@ services:
     networks:
       - redhotelmoro
 
-  # LDAP Account Manager (LAM) para sincronización
-  ldap-account-manager:
-    image: osixia/phpldapadmin:latest
-    container_name: ldap-account-manager
-    hostname: ldap-account-manager
-    ports:
-      - "101:80"
-    environment:
-      - PHPLDAPADMIN_LDAP_HOSTS=openldap
-      - PHPLDAPADMIN_HTTPS=false
-    depends_on:
-      - openldap
-    networks:
-      - redhotelmoro
-
-  #Postfix
-  mailserver:
-    image: analogic/poste.io
-    container_name: Postfix
-    restart: always
-    expose:
-      - "25"
-    environment:
-      - TZ=Europe/Barcelona
-      - h=mail.hotelmoro.com # Direccion del servidor de mail hosting
-      - HTTP_PORT=8080
-      - HTTPS_PORT=4443
-      - DISABLE_CLAMAV=TRUE
-      - DNS_SERVER=192.168.1.100
-    networks:
-      - redhotelmoro
-
-
-
-
-  #Dovecot
-  dovecot:
-    image: dovecot/dovecot
-    container_name: dovecot
-    volumes:
-      - './certificados:/etc/ssl/private:rw'
-    networks:
-      - redhotelmoro
-
-
   # Portainer (Administrador de Servicios)
   portainer:
     image: portainer/portainer-ce:latest
