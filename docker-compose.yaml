@@ -73,8 +73,6 @@ services:
     networks:
       - redhotelmoro # Asignamos este servicio a la red "redhotelmoro".
 
-
-
   # MySQL  (OK)
   mysql:
     image: mysql  #Utilizamos la imagen mysql
@@ -131,7 +129,4 @@ networks:
 
 volumes:
   openldap-data:
-  ftp-data:
-  ftp-log-data:
-  sftp-data:
   portainer_data:
