@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["loggedin"] = true;
 
         // Redirigir a PHPMyAdmin
-        header("Location: https://studious-goldfish-x77xwqw577539vvg-90.app.github.dev/");
+        header("Location: elindio:90");
         exit;
     } else {
         // Redirigir de vuelta al formulario de inicio de sesión si las credenciales son incorrectas
