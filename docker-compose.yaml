@@ -9,18 +9,18 @@ services:
       - "636:636"
     # Configuracion de las variables de entorno para OpenLDAP
     environment:
-      - LDAP_ORGANISATION=hotelmoro
-      - LDAP_DOMAIN=hotelmoro.com
+      - LDAP_ORGANISATION=elindio
+      - LDAP_DOMAIN=elindio.com
       - LDAP_ADMIN_USERNAME=admin
       - LDAP_ADMIN_PASSWORD=admin123
       - LDAP_CONFIG_PASSWORD=admin123
-      - LDAP_BASE_DN=dc=hotelmoro,dc=com
-      - LDAP_TLS_CRT_FILENAME=hotelmoro.crt
-      - LDAP_TLS_KEY_FILENAME=hotelmoro.key
-      - LDAP_TLS_CA_CRT_FILENAME=hotelmoro.com.ca.crt
+      - LDAP_BASE_DN=dc=elindio,dc=com
+      - LDAP_TLS_CRT_FILENAME=elindio.crt
+      - LDAP_TLS_KEY_FILENAME=elindio.key
+      - LDAP_TLS_CA_CRT_FILENAME=elindio.com.ca.crt
       - LDAP_READONLY_USER=false
     networks:
-      - redhotelmoro # conexion a la red especificada (redhotelmoro)
+      - redelindio # conexion a la red especificada (redelindio)
 
   # Phpldap (OK)
   phpldapadmin: #especificamos el nombre del servicio
@@ -38,23 +38,7 @@ services:
     depends_on:
       - openldap # define que este servicio depende del servicio openldap
     networks:
-      - redhotelmoro # Asignamos el contenedor a la red "redhotelmoro"
-
-  #CoreDNS (OK)
-  coredns: # Se utiliza la imagen coredns/coredns para este servicio
-    image: coredns/coredns #Imagen de DNS
-    container_name: coredns # Definimos el nombre del contenedor como "coredns"
-    restart: always #Indicamos que el contenedor debe reiniciarse siempre que de detenga
-    ports:
-      - "54:54/udp" # Se establece conexion del puerto 54 UDP del host al puerto 54 UDP del contenedor
-    volumes:
-      - './Corefile:/etc/coredns:rw' # Montamos el archivo corefile dentro del contenedor con permisos de lectura y escritura
-    environment: 
-      - COREDNS_ALLOW_UPDATE=yes #Se permiten las actualizaciones en CoreDNS
-      - COREDNS_ALLOW_AXFR_IPS=0.0.0.0/0 #Especificamos  las direcciones IP permitidas para la transeferencia de zona en CoreDNS
-      - COREDNS_IP=192.168.1.100 # Definimos la direccion IP utilitzada por CoreDNS
-    networks:
-      - redhotelmoro # Definimos la red como redhotelmoro 
+      - redelindio # Asignamos el contenedor a la red "redelindio"
 
 
   # PHP-Apache  (OK)
@@ -71,7 +55,7 @@ services:
     depends_on:
       - mysql  # Indicamos que este servicio depende del servicio "mysql".
     networks:
-      - redhotelmoro # Asignamos este servicio a la red "redhotelmoro".
+      - redelindio # Asignamos este servicio a la red "redelindio".
 
   # MySQL  (OK)
   mysql:
@@ -80,7 +64,7 @@ services:
      # Configuración de las variables de enotrno
     environment:
       MYSQL_ROOT_PASSWORD: admin123  #Establecemos la contraseña de root para MySQL.
-      MYSQL_DATABASE: HotelMoro # Creamos una base de datos llamada HotelMoro
+      MYSQL_DATABASE: elindio # Creamos una base de datos llamada elindio
       MYSQL_USER: admin # Creamos una usuario llamado admin
       MYSQL_PASSWORD: admin123 # Establecemos la contraseña al usuario 
     ports:
@@ -88,7 +72,7 @@ services:
     volumes: # Definimos volumenes adicionales
       - ./mysql:/docker-entrypoint-initdb.d:rw # Montamos el directorio local "./mysql" en el directorio "/docker-entrypoint-initdb.d" del contenedor con permisos de lectura y escritura.
     networks:
-      - redhotelmoro # Asignamos este servicio a la red "redhotelmoro".
+      - redelindio # Asignamos este servicio a la red "redelindio".
 
   # PHPMyAdmin (OK)
   phpmyadmin:
@@ -105,7 +89,7 @@ services:
     volumes: # Definimos los volumes adicionales
       - './mysql:/containerPath:ro' # Montamos el directorio local "./mysql" en el directorio "/docker-entrypoint-initdb.d" del contenedor con permisos de lectura y escritura.
     networks:
-      - redhotelmoro # Asignamos este servicio a la red "redhotelmoro".
+      - redelindio # Asignamos este servicio a la red "redelindio".
 
   # Portainer (Administrador de Servicios)
   portainer:
@@ -121,10 +105,10 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "portainer_data:/data"
     networks:
-      - redhotelmoro
+      - redelindio
 
 networks:
-  redhotelmoro:
+  redelindio:
     driver: bridge
 
 volumes:
