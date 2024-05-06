@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["loggedin"] = true;
 
         // Redirigir a PHPMyAdmin
-        header("Location: http://hotelmoro.com:90");
+        header("Location: https://studious-goldfish-x77xwqw577539vvg-90.app.github.dev/");
         exit;
     } else {
         // Redirigir de vuelta al formulario de inicio de sesión si las credenciales son incorrectas
