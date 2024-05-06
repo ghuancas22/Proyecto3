@@ -3,7 +3,7 @@
 <head>
 <style>
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Se establece el modelo de caja para todos los elementos */
 }
 
 body {
