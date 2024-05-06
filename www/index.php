@@ -145,7 +145,7 @@ function cargarContenido(url) { /*La funcion*/
                 <p>En el El Indio, la excelencia culinaria es una prioridad. Deléitate con una exquisita selección de platos gourmet en nuestro restaurante, donde la cocina mediterránea se fusiona con ingredientes frescos y sabores innovadores para crear una experiencia gastronómica inolvidable.
                 <p>Además, nuestras instalaciones de primer nivel incluyen un centro de bienestar donde puedes relajarte y rejuvenecer cuerpo y mente después de un día de exploración, así como espacios versátiles para eventos y reuniones que pueden adaptarse a tus necesidades específicas.
                 <p>Descubre el encanto incomparable de Barcelona desde la comodidad y la elegancia del El Indio. ¡Te esperamos con los brazos abiertos para que vivas una experiencia verdaderamente inolvidable!</p>
-                <img style="text-align: center" src="/img/hotelmoro.jpg" alt="hotelmoro" class="image">  <!-- Imagen del hotel -->
+                <img style="text-align: center" src="/img/elindio.jpg" alt="elindio" class="image">  <!-- Imagen del hotel -->
             </div>
         </div>
     </div>

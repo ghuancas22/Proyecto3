@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar sesión en Hotel Moro</title>
+    <title>Iniciar sesión en El Indio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
