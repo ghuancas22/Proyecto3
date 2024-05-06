@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["loggedin"] = true;
 
         // Redirigir a PHPMyAdmin
-        header("Location: elindio:90");
+        header("Location: bbdd.php");
         exit;
     } else {
         // Redirigir de vuelta al formulario de inicio de sesión si las credenciales son incorrectas
