@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos MySQL
-$mysqli = new mysqli("mysql", "admin", "admin123", "HotelMoro");
+$mysqli = new mysqli("mysql", "admin", "admin123", "elindio");
 
 // Verificar la conexión
 if ($mysqli->connect_error) {

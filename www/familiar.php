@@ -1,6 +1,6 @@
 <?php 
 // Conexión a la base de datos MySQL
-$mysqli = new mysqli("mysql", "admin", "admin123", "HotelMoro");
+$mysqli = new mysqli("mysql", "admin", "admin123", "elindio");
 
 // Verificar la conexión
 if ($mysqli->connect_error) {
@@ -69,7 +69,7 @@ if ($mysqli->connect_error) {
     <div class="container">
         <h1>Habitaciones familiares</h1>
         <p>¡Disfruta de momentos inolvidables con tu familia en nuestras acogedoras habitaciones familiares!</p>
-        <p>En HotelMoro, entendemos que la familia es lo más importante. Por eso, nuestras habitaciones familiares están diseñadas pensando en el confort y la comodidad de todos los miembros de la familia.</p>
+        <p>En elindio, entendemos que la familia es lo más importante. Por eso, nuestras habitaciones familiares están diseñadas pensando en el confort y la comodidad de todos los miembros de la familia.</p>
         <p>Con un ambiente cálido y espacioso, nuestras habitaciones familiares ofrecen todo lo necesario para que tu estancia sea perfecta. Desde amplias camas hasta áreas de estar separadas, cada detalle está cuidadosamente pensado para garantizar el máximo disfrute para ti y tu familia.</p>
         <p>Además, nuestras habitaciones familiares ofrecen impresionantes vistas panorámicas que harán que tus momentos en familia sean aún más especiales. Ya sea disfrutando de la ciudad, la playa o las montañas, aquí encontrarás el escenario perfecto para crear recuerdos que perdurarán para siempre.</p>
 

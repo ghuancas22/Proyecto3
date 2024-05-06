@@ -1,6 +1,6 @@
--- Crear la base de datos HotelMoro
-CREATE DATABASE IF NOT EXISTS HotelMoro;
-USE HotelMoro;
+-- Crear la base de datos elindio
+CREATE DATABASE IF NOT EXISTS elindio;
+USE elindio;
 
 -- Tabla para los clientes del hotel
 CREATE TABLE IF NOT EXISTS cliente (
@@ -30,14 +30,14 @@ CREATE TABLE IF NOT EXISTS personal (
 -- Insertar algunos datos de ejemplo en la tabla personal
 INSERT INTO personal (nombre, email, puesto, seccion)
 VALUES 
-    ('Pedro Lopez', 'pedrohm@hotelmoro.com', 'Limpieza', 'Piso'),
-    ('Ana Martinez', 'anahm@hotelmoro.com', 'Recepcion', 'Atencion al Cliente');
+    ('Pedro Lopez', 'pedrohm@elindio.com', 'Limpieza', 'Piso'),
+    ('Ana Martinez', 'anahm@elindio.com', 'Recepcion', 'Atencion al Cliente');
 
 -- Secciones para el personal del hotel
 INSERT INTO personal (nombre, email, puesto, seccion)
 VALUES 
-    ('Laura Gomez', 'laurahm@hotelmoro.com', 'Mantenimiento', 'area Tecnica'),
-    ('Javier Ruiz', 'javierhm@hotelmoro.com', 'Seguridad', 'Vigilancia');
+    ('Laura Gomez', 'laurahm@elindio.com', 'Mantenimiento', 'area Tecnica'),
+    ('Javier Ruiz', 'javierhm@elindio.com', 'Seguridad', 'Vigilancia');
 
 -- Agregar mas secciones y empleados según sea necesario
 
