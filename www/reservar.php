@@ -12,11 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $nombre = $_POST["nombre"];
     $email = $_POST["email"];
+    $dni = $_POST["dni"]; // Nuevo campo para el DNI del cliente
+    $cantidad_personas = $_POST["cantidad_personas"];
     $fecha_inicio = $_POST["fecha_inicio"];
     $fecha_fin = $_POST["fecha_fin"];
+    $habitacion = $_POST["habitacion"]; // Nuevo campo para la habitación
 
     // Insertar la reserva en la base de datos
-    $query = "INSERT INTO cliente (nombre, email, fecha_entrada, fecha_salida) VALUES ('$nombre', '$email', '$fecha_inicio', '$fecha_fin')";
+    $query = "INSERT INTO cliente (nombre, email, DNI, cantidad_personas, habitacion, fecha_entrada, fecha_salida) VALUES ('$nombre', '$email', '$dni', '$cantidad_personas', '$habitacion', '$fecha_inicio', '$fecha_fin')";
     if ($mysqli->query($query) === TRUE) {
         echo "Reserva realizada con éxito.";
     } else {
@@ -65,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         input[type="text"],
         input[type="email"],
+        input[type="number"],
         input[type="date"],
         input[type="submit"] {
             width: 100%;
@@ -96,6 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            
+            <label for="dni">DNI:</label> <!-- Nuevo campo para el DNI -->
+            <input type="text" id="dni" name="dni" required>
+            
+            <label for="cantidad_personas">Cantidad de personas:</label>
+            <input type="number" id="cantidad_personas" name="cantidad_personas" required>
+
+            <label for="habitacion">Habitación:</label> <!-- Nuevo campo para la habitación -->
+            <input type="text" id="habitacion" name="habitacion" required>
             
             <label for="fecha_inicio">Fecha de entrada:</label>
             <input type="date" id="fecha_inicio" name="fecha_inicio" required>
