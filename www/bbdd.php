@@ -63,6 +63,13 @@
                 die("Error de conexión a la base de datos: " . $mysqli->connect_error);
             }
 
+            // Botón para eliminar un usuario
+            echo '<form action="eliminar_usuario.php" method="post">';
+            echo '<label for="eliminarDNI">Eliminar usuario por DNI:</label>';
+            echo '<input type="text" id="eliminarDNI" name="eliminarDNI">';
+            echo '<input type="submit" value="Eliminar">';
+            echo '</form>';
+
             // Consulta para obtener los datos de la tabla 'cliente'
             $query_cliente = "SELECT * FROM cliente";
             $result_cliente = $mysqli->query($query_cliente);
@@ -85,23 +92,12 @@
             } else {
                 echo '<p>No hay datos en la tabla "cliente".</p>';
             }
-
-            // Cerrar la conexión a la base de datos
-            $mysqli->close();
             ?>
         </div>
 
         <div class="section">
             <h1>Personal:</h1>
             <?php
-            // Conexión a la base de datos MySQL
-            $mysqli = new mysqli("mysql", "admin", "admin123", "elindio");
-
-            // Verificar la conexión
-            if ($mysqli->connect_error) {
-                die("Error de conexión a la base de datos: " . $mysqli->connect_error);
-            }
-
             // Consulta para obtener los datos de la tabla 'personal'
             $query_personal = "SELECT * FROM personal";
             $result_personal = $mysqli->query($query_personal);
