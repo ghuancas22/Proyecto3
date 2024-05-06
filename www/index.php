@@ -23,7 +23,7 @@ body {
   font-size: 50px; /* Tamaño de la fuente del título */
   color:#1f0469 /* Color del texto */
 }
-}
+
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden; /* Gestion de desbordamiento */
