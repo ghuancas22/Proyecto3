@@ -40,7 +40,7 @@ VALUES
 -- Secciones para el personal del hotel
 INSERT INTO personal (nombre, email, DNI, edad, puesto, seccion)
 VALUES 
-    ('Laura Gomez', 'laurahm@elindio.com', '33333333Z', 42, 'Mantenimiento', 'area Tecnica'),
+    ('Laura Gomez', 'laurahm@elindio.com', '33333333Z', 42, 'Mantenimiento', 'Area Tecnica'),
     ('Javier Ruiz', 'javierhm@elindio.com', '44444444W', 30, 'Seguridad', 'Vigilancia');
 
 -- Agregar mas secciones y empleados según sea necesario
