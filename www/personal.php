@@ -60,7 +60,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hotel Moro</h1>
+        <h1>El Indio</h1>
         <h2>Iniciar sesión</h2>
         <h3>Personal</h3>
         <form action="login_personal.php" method="post">

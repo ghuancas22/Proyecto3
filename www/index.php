@@ -119,7 +119,7 @@ function cargarContenido(url) { /*La funcion*/
 <body>
 <!-- CABECERA -->
 <div class="header">
-    <h1>Hotel Moro</h1>
+    <h1>El Indio</h1>
     <p>Somos lo mejor para ti</p>   <!-- Mensaje de bienvenida -->
 </div>
 
@@ -137,14 +137,14 @@ function cargarContenido(url) { /*La funcion*/
         <div id="leftcolumn" class="leftcolumn">
             <div class="card">
             <h1>Indice</h1> <!-- Título -->
-                <p>¡Bienvenido al Hotel Moro!<br> <!-- Mensaje de bienvenida -->
+                <p>¡Bienvenido al El Indio!<br> <!-- Mensaje de bienvenida -->
                 <!-- Otros párrafos con información sobre el hotel -->
-                <p>Sumérgete en una experiencia única de hospitalidad y sofisticación en el corazón de Barcelona. En el Hotel Moro, nuestra pasión es hacer que cada momento de tu estadía sea inolvidable, fusionando elegancia, comodidad y calidez para crear un ambiente acogedor que te haga sentir como en casa desde el momento en que cruzas nuestras puertas.
+                <p>Sumérgete en una experiencia única de hospitalidad y sofisticación en el corazón de Barcelona. En el El Indio, nuestra pasión es hacer que cada momento de tu estadía sea inolvidable, fusionando elegancia, comodidad y calidez para crear un ambiente acogedor que te haga sentir como en casa desde el momento en que cruzas nuestras puertas.
                 <p>Con una ubicación privilegiada en el vibrante centro de Barcelona, ​​nuestro hotel es el punto de partida perfecto para explorar esta cautivadora ciudad. Ya sea que estés aquí por negocios o por placer, nuestro equipo dedicado está aquí para atender cada una de tus necesidades, desde recomendaciones locales hasta servicios personalizados, garantizando que tu estancia sea excepcional en todos los sentidos.
                 <p>Descubre un oasis de tranquilidad en nuestras lujosas habitaciones y suites, diseñadas con un toque contemporáneo y equipadas con todas las comodidades modernas que necesitas para disfrutar al máximo de tu descanso. Desde impresionantes vistas de la ciudad hasta exquisitos detalles en cada rincón, cada espacio ha sido cuidadosamente diseñado para brindarte una experiencia de alojamiento incomparable.
-                <p>En el Hotel Moro, la excelencia culinaria es una prioridad. Deléitate con una exquisita selección de platos gourmet en nuestro restaurante, donde la cocina mediterránea se fusiona con ingredientes frescos y sabores innovadores para crear una experiencia gastronómica inolvidable.
+                <p>En el El Indio, la excelencia culinaria es una prioridad. Deléitate con una exquisita selección de platos gourmet en nuestro restaurante, donde la cocina mediterránea se fusiona con ingredientes frescos y sabores innovadores para crear una experiencia gastronómica inolvidable.
                 <p>Además, nuestras instalaciones de primer nivel incluyen un centro de bienestar donde puedes relajarte y rejuvenecer cuerpo y mente después de un día de exploración, así como espacios versátiles para eventos y reuniones que pueden adaptarse a tus necesidades específicas.
-                <p>Descubre el encanto incomparable de Barcelona desde la comodidad y la elegancia del Hotel Moro. ¡Te esperamos con los brazos abiertos para que vivas una experiencia verdaderamente inolvidable!</p>
+                <p>Descubre el encanto incomparable de Barcelona desde la comodidad y la elegancia del El Indio. ¡Te esperamos con los brazos abiertos para que vivas una experiencia verdaderamente inolvidable!</p>
                 <img style="text-align: center" src="/img/hotelmoro.jpg" alt="hotelmoro" class="image">  <!-- Imagen del hotel -->
             </div>
         </div>

@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservar - Hotel Moro</title>
+    <title>Reservar - El Indio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container">
-        <h1>Reservar - Hotel Moro</h1>
+        <h1>Reservar - El Indio</h1>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
