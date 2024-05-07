@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
     <title>Iniciar sesión en El Indio</title>
     <style>
-=======
-    <title>Iniciar sesión en Hotel Moro</title>
-    <style> /* Se añade estilo CSS para aplicar al contenido de la página*/
->>>>>>> e386e32 (Naila)
         body {
             font-family: Arial, sans-serif; 
             background-color: #f1f1f1;
