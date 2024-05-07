@@ -97,13 +97,18 @@ services:
     container_name: portainer # Asignamos un nombre al contenedor.
     restart: always # Indicamos que el contenedor se reinicie automáticamente siempre que se detenga.
     ports:
-      - "9000:9000" # Se establece conexion el puerto 9000 del host al puerto 9000 del contenedor.
+      - "9000:9000"
+    # Se establece conexion el puerto 9000 del host al puerto 9000 del contenedor.
     environment:
-      - ADMIN_USERNAME=admin #Se establece el nombre de usuario de adminisitrador como "admin"
-      - ADMIN_PASSWORD=administrador #Se establece la contraseña de administrador como “administrador”
+      - ADMIN_USERNAME=admin 
+      - ADMIN_PASSWORD=administrador 
+    #Se establece la contraseña de administrador como “administrador”
+    #Se establece el nombre de usuario de adminisitrador como "admin"
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock" #Se Monta el socket de Docker del host en el contenedor para que Portainer pueda interactuar con el demonio de Docker.
-      - "portainer_data:/data" #Se crea un volumen llamado “portainer_data” y lo monta en el directorio “/data” del contenedor.
+      - "/var/run/docker.sock:/var/run/docker.sock" 
+      - "portainer_data:/data"
+    #Se Monta el socket de Docker del host en el contenedor para que Portainer pueda interactuar con el demonio de Docker.
+    #Se crea un volumen llamado “portainer_data” y lo monta en el directorio “/data” del contenedor.
     networks: 
       - redelindio # Asignamos este servicio a la red "redelindio".
 
