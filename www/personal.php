@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Iniciar sesión en El Indio</title>
-    <style>
+    <style> /* Se añade estilo CSS para aplicar al contenido de la página*/
         body {
             font-family: Arial, sans-serif; 
             background-color: #f1f1f1;
