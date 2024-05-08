@@ -38,10 +38,6 @@ INSERT INTO personal (nombre, email, DNI, edad, puesto, seccion)
 VALUES 
     ('Pedro Lopez', 'pedrohm@elindio.com', '11111111X', 35, 'Limpieza', 'Piso'), -- Ejemplo de empleado 1
     ('Ana Martinez', 'anahm@elindio.com', '22222222Y', 28, 'Recepcion', 'Atencion al Cliente'); -- Ejemplo de empleado 2
-
--- Secciones para el personal del hotel
-INSERT INTO personal (nombre, email, DNI, edad, puesto, seccion)
-VALUES 
     ('Laura Gomez', 'laurahm@elindio.com', '33333333Z', 42, 'Mantenimiento', 'Area Tecnica'), -- Ejemplo de empleado 3
     ('Javier Ruiz', 'javierhm@elindio.com', '44444444W', 30, 'Seguridad', 'Vigilancia'); -- Ejemplo de empleado 4
 

@@ -84,7 +84,7 @@ services:
       # Configuración de las variables de enotrno
     environment:
       PMA_HOST: mysql  # Especificamos el host donde se encuentra el servidor MySQL al que PHPMyAdmin se conectará.
-      PMA_PORT: 3306  # # Especificamos el puerto del servidor MySQL al que PHPMyAdmin se conectará.
+      PMA_PORT: 3306  # Especificamos el puerto del servidor MySQL al que PHPMyAdmin se conectará.
       MYSQL_ROOT_PASSWORD: admin123 # # Establecemos la contraseña de root para MySQL.
     volumes: # Definimos los volumes adicionales
       - './mysql:/containerPath:ro' # Montamos el directorio local "./mysql" en el directorio "/docker-entrypoint-initdb.d" del contenedor con permisos de lectura y escritura.
