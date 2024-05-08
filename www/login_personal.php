@@ -1,5 +1,5 @@
 <?php
-// Verificar si se han enviado los datos del formulario
+// Verificar si se han enviado los datos del formulario 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     // Verificar las credenciales (aquí puedes agregar tu lógica de autenticación)
     $username = $_POST["username"]; //Se obtiene el valor del campo de entrada de usuario del formulario y lo almacena en la variable 

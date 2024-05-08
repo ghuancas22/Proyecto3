@@ -91,7 +91,7 @@ services:
     networks:
       - redelindio # Asignamos este servicio a la red "redelindio".
 
-  # Portainer (Administrador de Servicios)
+  # Portainer (Administrador de Servicios) (OK)
   portainer:
     image: portainer/portainer-ce:latest  # Utiliza la imagen de Portainer la màs reciente
     container_name: portainer # Asignamos un nombre al contenedor.
