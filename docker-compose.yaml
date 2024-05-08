@@ -102,13 +102,9 @@ services:
     environment:
       - ADMIN_USERNAME=admin 
       - ADMIN_PASSWORD=administrador 
-    #Se establece la contraseña de administrador como “administrador”
-    #Se establece el nombre de usuario de adminisitrador como "admin"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock" 
       - "portainer_data:/data"
-    #Se Monta el socket de Docker del host en el contenedor para que Portainer pueda interactuar con el demonio de Docker.
-    #Se crea un volumen llamado “portainer_data” y lo monta en el directorio “/data” del contenedor.
     networks: 
       - redelindio # Asignamos este servicio a la red "redelindio".
 
