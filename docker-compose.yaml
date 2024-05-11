@@ -28,7 +28,7 @@ services:
     container_name: phpldapadmin #Definimos el nombre del contenedor como phpldapadmin
     hostname: phpldapadmin #Asignamos el nombre del host del contendor como phpldapadmin
     ports:
-      - "100:80" # Se establece una conexion entre el puerto 100 del host y el puerto 80.
+      - "100:80" # Se establece una conexion entre el puerto 100 del host y el puerto 80
     # Configuración de las variables de enotrno
     environment:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap # Configura el host LDAP al que PHP LDAP Admin se conectarà
